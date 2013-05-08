@@ -1,7 +1,7 @@
 * Install gems
   - twitter-bootstrap-rails
   - less-rails
-* TODO [1/1] Daniel Kehoe / bootstrap-sass (http://railsapps.github.io/twitter-bootstrap-rails.html )
+* TODO [8/9] Daniel Kehoe / bootstrap-sass (http://railsapps.github.io/twitter-bootstrap-rails.html )
   1. [X] Generate a skeletal Rails application bootstap-kehoe.troywill.info
      1. [X] rails new command
       #+BEGIN_SRC sh
@@ -25,14 +25,144 @@
             CustomLog logs/dummy-host.example.com-access_log common
             RailsEnv development
         </VirtualHost>
-        
       #+END_SRC
      5. [X] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
 	#+BEGIN_SRC conf
           # See https://github.com/sstephenson/execjs#readme for more supported runtimes
           gem 'therubyracer', platforms: :ruby
         #+END_SRC
-      6. [X] Restart Apache server
+     6. [X] Restart Apache server (CentOS)
+	#+BEGIN_SRC sh
+          httpd -k restart
+        #+END_SRC
+  2. [X] generate a scaffold
+     1. [X] rails generate scaffold
+	#+BEGIN_SRC sh
+          rails generate scaffold reading weight:decimal reading_time:datetime --skip-stylesheets
+        #+END_SRC
+     2. [X] migrate the database
+	#+BEGIN_SRC sh
+	  rake db:migrate
+	#+END_SRC
+     3. [X] set default route in file:../config/routes.rb
+	#+BEGIN_SRC ruby
+          root 'readings#index'
+	#+END_SRC
+  3. [X] Enable the bootstrap-sass gem
+     1. [X] Install bootstrap-sass
+	#+BEGIN_SRC sh
+	  sudo gem install bootstrap-sass
+	#+END_SRC
+	- ( Successfully installed bootstrap-sass-2.3.1.0 Wed May  8 08:55:02 PDT 2013 )
+     2. [X] Add bootstap-sass in [[file:../Gemfile][Gemfile]]
+	#+BEGIN_SRC ruby
+          gem 'bootstrap-sass'
+        #+END_SRC
+     3. [X] Restart server
+  4. [X] Include the Twitter Bootstrap Javascript
+     - [X] Modify [[file:../app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+	#+BEGIN_SRC js
+          //= require jquery
+          //= require jquery_ujs
+          //= require turbolinks
+          //= require_tree .
+          //= require bootstrap
+	#+END_SRC
+  5. [X] Rename application.css application.scss
+     #+BEGIN_SRC sh
+     cd .. && mv -v application.css application.css.scss
+     #+END_SRC
+  6. [X] Import Bootstrap in an SCSS file
+     1. [X] Add a new [[file:../app/assets/stylesheets/bootstrap_and_overrides.css.scss][app/assets/stylesheets/bootstrap_and_overrides.css.scss]]
+	#+BEGIN_SRC css
+          @import "bootstrap";
+          body { padding-top: 60px; }
+          @import "bootstrap-responsive";
+	#+END_SRC
+	- bootstrap_and_overrides.css.scss is automatically included and compiled by the `*= require_tree .` statement in application.css.scss
+  7. [X] Create a Navigation partial in [[file:/scpc:troy@usahealthscience.com:/home/troy/srv/bootstrap/128/kehoe/app/views/layouts/_navigation.html.erb][app/views/layouts/_navigation.html.erb]]
+     #+BEGIN_SRC html
+<%= link_to "Home", root_path, :class => 'brand' %>
+<ul class="nav">
+  <% if user_signed_in? %>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+  </li>
+  <% else %>
+  <li>
+    <%= link_to('Login', new_user_session_path)  %>
+  </li>
+  <% end %>
+  <% if user_signed_in? %>
+  <li>
+    <%= link_to('Edit account', edit_user_registration_path) %>
+  </li>
+  <% else %>
+  <li>
+    <%= link_to('Sign up', new_user_registration_path)  %>
+  </li>
+  <% end %>
+  <li><%= link_to "Overview", root_path %></li>
+  <li><%= link_to "New reading", root_path %></li>
+  <li><%= link_to "See all readings", root_path %></li>
+  <li><%= link_to "Goal", root_path %></li>
+  <li><%= link_to "3 day graph", root_path %></li>
+  <li><%= link_to "28 day graph", root_path %></li>
+  <li><%= link_to "1 year graph", root_path %></li>
+  <li><%= link_to "4 year graph", root_path %></li>
+</ul>
+     #+END_SRC
+  8. [ ] Create a Messages partial in file:../app/views/layouts/_messages.html.erb
+     #+BEGIN_SRC html
+       <% flash.each do |name, msg| %>
+         <% if msg.is_a?(String) %>
+         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+           <a class="close" data-dismiss="alert">&#215;</a>
+           <%= content_tag :div, msg, :id => "flash_#{name}" %>
+         </div>
+         <% end %>
+       <% end %>
+     #+END_SRC
+  9. [X] New Application Layout with Twitter Bootstrap file:../app/views/layouts/application.html.erb
+     #+BEGIN_SRC html
+       <!doctype html>
+       <html>
+         <head>
+           <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+           <meta name="description" content="">
+           <meta name="author" content="">
+           <%= stylesheet_link_tag "application", :media => "all" %>
+           <%= javascript_include_tag "application" %>
+           <%= csrf_meta_tags %>
+           <%= yield(:head) %>
+         </head>
+         <body>
+           <header class="navbar navbar-fixed-top">
+             <nav class="navbar-inner">
+               <div class="container">
+                 <%= render 'layouts/navigation' %>
+               </div>
+             </nav>
+           </header>
+           <div id="main" role="main">
+             <div class="container">
+               <div class="content">
+                 <div class="row">
+                   <div class="span12">
+                     <%= render 'layouts/messages' %>
+                     <%= yield %>
+                   </div>
+                 </div>
+                 <footer>
+                 </footer>
+               </div>
+             </div> <!--! end of .container -->
+           </div> <!--! end of #main -->
+         </body>
+       </html>
+     #+END_SRC
 * TODO [3/6] Generate a skeletal Rails application with bootstrap-sass gem
   1. [X] Install gems
      #+BEGIN_SRC sh
