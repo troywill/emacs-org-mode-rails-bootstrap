@@ -12,37 +12,37 @@
    - https://github.com/seyhunak/twitter-bootstrap-rails
 ** Tutorials
    - http://railsapps.github.io/twitter-bootstrap-rails.html
-* [100%] Twitter Bootstrap with Ruby on Rails from Zipfile
-  1. [X] cd ../tmp && wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
-  2. [X] copy javascripts, css, and images
-  3. [X] backup application.html.erb
+* [0/4] Twitter Bootstrap with Ruby on Rails from Zipfile
+  1. [ ] cd ../tmp && wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
+  2. [ ] copy javascripts, css, and images
+  3. [ ] backup application.html.erb
   4. [ ] cp Twitter's Example
      #+BEGIN_SRC html
        http://twitter.github.io/bootstrap/examples/starter-template.html
      #+END_SRC
      
 * Twitter Bootstrap with Ruby on Rails  https://github.com/seyhunak/twitter-bootstrap-rails
-** [9/11] Generate a skeletal Rails application with twitter-bootstrap-rails gem
-   1. [X] Run the rails new command
+** [0/11] Generate a skeletal Rails application with twitter-bootstrap-rails gem
+   1. [ ] Run the rails new command
       #+BEGIN_SRC sh
        	rails new bootstrap
       #+END_SRC
-   2. [X] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
+   2. [ ] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
        	#+BEGIN_SRC conf
           # See https://github.com/sstephenson/execjs#readme for more supported runtimes
           gem 'therubyracer', platforms: :ruby
        	#+END_SRC
-   3. [X] Add twitter-bootstrap-rails to [[file:../Gemfile][Gemfile]]
+   3. [ ] Add twitter-bootstrap-rails to [[file:../Gemfile][Gemfile]]
       #+BEGIN_SRC conf
         # gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
        	gem 'twitter-bootstrap-rails'
        	gem 'less-rails'
       #+END_SRC
-   4. [X] Run `bundle install`
+   4. [ ] Run `bundle install`
       #+BEGIN_SRC sh
         bundle install
       #+END_SRC
-   5. [X] Then run the bootstrap generator to add Bootstrap includes into your assets:
+   5. [ ] Then run the bootstrap generator to add Bootstrap includes into your assets:
       #+BEGIN_SRC sh
         rails generate bootstrap:install less
       #+END_SRC
@@ -54,7 +54,7 @@
                 gsub  app/assets/stylesheets/application.css
                 gsub  app/assets/stylesheets/application.css
       #+END_EXAMPLE
-   6. [X] generate a scaffold
+   6. [ ] generate a scaffold
       #+BEGIN_SRC sh :tangle bin/generate-scaffold-reading.sh :shebang #!/bin/bash
         rails generate scaffold reading \
             weight:decimal \
@@ -62,8 +62,8 @@
             note:text \
             --skip-stylesheets
       #+END_SRC
-   7. [X] migrate the database
-   8. [X] default route file:../config/routes.rb
+   7. [ ] migrate the database
+   8. [ ] default route file:../config/routes.rb
       #+BEGIN_SRC ruby
           root 'readings#index'
       #+END_SRC
@@ -72,7 +72,7 @@
         rails generate bootstrap:layout application fixed
       #+END_SRC
    10. [ ] file:../app/assets/
-   11. [X] restart server
+   11. [ ] restart server
 
 *** [0/5] Improve the layout
    1. [ ] Wrap the content in a fixed width layout in [[file:../app/views/layouts/application.html.erb][application.html.erb]]
