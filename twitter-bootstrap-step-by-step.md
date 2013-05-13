@@ -127,13 +127,13 @@ Rails application structure and Rails will detect and incorporate them into the 
 
 Now that we have [bootstrap.css](https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css) and [bootstrap.js](https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js) incorporated into our Rails
 application we can proceed to change the default Rails application layout
-the use Bootstrap's CSS and Javascript.
+to use Bootstrap's CSS and Javascript.
 
 # <code>[0/2]</code> Use Twitter Bootstrap's layout in our application instead of the default Rails layout
 
-1.  [ ] Copy starter-template.html.erb to 
-         <app/views/layouts/starter-template.html.erb>
+1.  [ ] Overwrite app/views/layouts/application.html.erb with [starter-template.html.erb](app/views/layouts/starter-template.html.erb) 
     
+        # ./bin/copy-starter-template.sh
         # this command will replace the default rails layout with a Twitter Bootstrap layout
         cp -v app/views/layouts/starter-template.html.erb ../app/views/layouts/application.html.erb
     
@@ -190,9 +190,10 @@ the use Bootstrap's CSS and Javascript.
         </body>
         </html>
     
-    The starter example layout uses a fixed width layout, which is
-    introduced at [scaffolding.html#layouts](http://twitter.github.io/bootstrap/scaffolding.html#layouts).
+    The starter example layout uses a fixed width layout, which is introduced at [scaffolding.html#layouts](http://twitter.github.io/bootstrap/scaffolding.html#layouts).
 
 2.  [ ] Compare our application at <http://localhost:3000> with <http://twitter.github.io/bootstrap/examples/starter-template.html>.
     
-    Our newly created Rails application running on port 3000 should have the
+    Our newly created Rails application running on port 3000 should have essentially the
+    same appearance as the example running on Twitter's github.io site. It it doesn't something
+    went wrong.
