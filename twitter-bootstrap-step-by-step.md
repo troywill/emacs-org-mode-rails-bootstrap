@@ -5,7 +5,7 @@
 <li><a href="#sec-1">1. Introduction</a></li>
 <li><a href="#sec-2">2. <code>[0/9]</code> Build an initial Rails application</a></li>
 <li><a href="#sec-3">3. <code>[0/4]</code> Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
-<li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstap's layout in our application instead of the default Rails layout</a></li>
+<li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap's layout in our application instead of the default Rails layout</a></li>
 </ul>
 </div>
 </div>
@@ -26,7 +26,7 @@ from the twitter-bootstrap-step-by-step.org file.
 # <code>[0/9]</code> Build an initial Rails application
 
 The [Twitter Bootstrap project](http://twitter.github.io/bootstrap/index.html) website provides [8 example layouts](http://twitter.github.io/bootstrap/getting-started.html#examples). In this tutorial we
-will use the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template to see how to use Bootstap's CSS layout.
+will use the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template to see how to use Bootstrap's CSS layout.
 
 See [<http://twitter.github.io/bootstrap/>](http://twitter.github.io/bootstrap/) -> [getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples) to view all 8 examples.
 See [Bootstrap GitHub Repository](https://github.com/twitter/bootstrap) to view the developement repository.
@@ -71,7 +71,7 @@ are in the [starter-template.html](http://twitter.github.io/bootstrap/examples/s
     
         rails generate controller home index about contact --skip-stylesheets
     
-    Note the use of '&#x2013;skip-stylesheets' since we will use Twitter Bootstap's stylesheets
+    Note the use of '&#x2013;skip-stylesheets' since we will use Twitter Bootstrap's stylesheets
 
 8.  [ ] Set the default route to home/index in [config/routes.rb](../config/routes.rb)
     
@@ -87,7 +87,7 @@ are in the [starter-template.html](http://twitter.github.io/bootstrap/examples/s
         root 'home#index'
     
     Now, Rails will direct vistors to the application to home/index. We are
-    ready to start the Rails application and incorporate Twitter Bootstap's
+    ready to start the Rails application and incorporate Twitter Bootstrap's
     stylesheets and JavaScript scripts.
 
 9.  [ ] Start the rails server
@@ -102,9 +102,9 @@ The heart of Twitter Bootstrap is two files: [bootstrap.css](https://github.com/
 the minified forms of those files ( bootstrap.min.css and bootstrap.min.js ) to our
 Rails application structure and Rails will detect and incorporate them into the application.
 
-1.  [ ] Download the Zipfile from Twitter Bootstap website from your web browser or web client.
+1.  [ ] Download the Zipfile from Twitter Bootstrap website from your web browser or web client.
     
-        # ./bin/fetch-bootstap-zip.sh
+        # ./bin/fetch-bootstrap-zip.sh
         wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
 
 2.  [ ] Decompress the bootstrap.zip Zip file
@@ -120,16 +120,16 @@ Rails application structure and Rails will detect and incorporate them into the 
 
 4.  [ ] Copy glyphicons-halflings.png and glyphicons-halflings-white.png
     
-        # ./bin/copy-bootstap-to-rails.sh
+        # ./bin/copy-bootstrap-to-rails.sh
         mkdir -v ../app/assets/images
         cp -iv bootstrap/img/glyphicons-halflings.png ../app/assets/images/
         cp -iv bootstrap/img/glyphicons-halflings-white.png ../app/assets/images/
 
 Now that we have [bootstrap.css](https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css) and [bootstrap.js](https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js) incorporated into our Rails
 application we can proceed to change the default Rails application layout
-the use Bootstap's CSS and Javascript.
+the use Bootstrap's CSS and Javascript.
 
-# <code>[0/2]</code> Use Twitter Bootstap's layout in our application instead of the default Rails layout
+# <code>[0/2]</code> Use Twitter Bootstrap's layout in our application instead of the default Rails layout
 
 1.  [ ] Copy starter-template.html.erb to 
          <app/views/layouts/starter-template.html.erb>
