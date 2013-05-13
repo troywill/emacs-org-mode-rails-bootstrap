@@ -3,7 +3,8 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. Introduction</a></li>
-<li><a href="#sec-2">2. Part One: Build a Rails application with Twitter Bootstrap</a></li>
+<li><a href="#sec-2">2. Part One: Build an Rails application with</a></li>
+<li><a href="#sec-3">3. Part Two: Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
 </ul>
 </div>
 </div>
@@ -19,7 +20,10 @@ Note for Emacs users: This tutorial was written in Emacs Org Mode. If
 you are an Emacs Org Mode user you can carry out the steps in this tutorial
 from the twitter-bootstrap-step-by-step.org file.
 
-# Part One: Build a Rails application with [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
+# Part One: Build an Rails application with
+
+Let's build an example Rails application with a 'home'
+controller and 'home/index', "home/about", "home/contact" pages.
 
 1.  [ ] Initialize a new Rails application
     
@@ -75,3 +79,9 @@ from the twitter-bootstrap-step-by-step.org file.
     Now, Rails will direct vistors to the application to home/index. We are
     ready to start the Rails application and incorporate Twitter Bootstap's
     stylesheets and JavaScript scripts.
+
+9.  [ ] Start the rails server
+    
+        rails server --port 3000
+
+# Part Two: Incorporate [Twitter Bootstrap](http://twitter.github.io/bootstrap/)'s CSS style sheets and JavaScript scripts.
