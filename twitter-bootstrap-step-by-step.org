@@ -87,33 +87,33 @@
      #+BEGIN_SRC sh
        rails server --port 3000
      #+END_SRC
-* Incorporate [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]'s CSS style sheets and JavaScript scripts.
+* [6/6] Incorporate [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]'s CSS style sheets and JavaScript scripts.
 
   The heart of Twitter Bootstrap is two files: [[https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css][bootstrap.css]] and [[https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js][bootstrap.js]]. We copy
   the minified forms of those files ( bootstrap.min.css and bootstrap.min.js ) to our
   Rails application structure and Rails will detect and incorporate them into the application.
   
-  1. [ ] Download the Zipfile from Twitter Bootstap website from your web browser or web client.
+  1. [X] Download the Zipfile from Twitter Bootstap website from your web browser or web client.
      #+BEGIN_SRC sh
        wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
      #+END_SRC
-  2. [ ] Decompress the bootstrap.zip Zip file
+  2. [X] Decompress the bootstrap.zip Zip file
      #+BEGIN_SRC sh
-       unzip bootstap.zip
+       unzip bootstrap.zip
      #+END_SRC
-  3. [ ] Copy bootstrap.min.css to app/assets/stylesheets
+  3. [X] Copy bootstrap.min.css to app/assets/stylesheets
      #+BEGIN_SRC sh :tangle bin/copy-bootstap-to-rails
        cp -v bootstrap/css/bootstrap.css ../app/assets/stylesheets
      #+END_SRC
-  4. [ ] Copy bootstrap-repsonsive.min.css to app/assets/stylesheets
+  4. [X] Copy bootstrap-repsonsive.min.css to app/assets/stylesheets
      #+BEGIN_SRC sh :tangle bin/copy-bootstap-to-rails
        cp -v bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets
      #+END_SRC
-  5. [ ] Copy bootstrap.min.js to app/assets/javascripts
+  5. [X] Copy bootstrap.min.js to app/assets/javascripts
      #+BEGIN_SRC sh :tangle bin/copy-bootstap-to-rails
        cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts
      #+END_SRC
-  6. [ ] Copy two image files
+  6. [X] Copy two image files
      #+BEGIN_SRC sh :tangle bin/copy-bootstap-to-rails
        # ‘bootstrap/img/glyphicons-halflings.png’
        # ‘bootstrap/img/glyphicons-halflings-white.png’
@@ -126,7 +126,7 @@
   application we can proceed to change the default Rails application layout
   the use Bootstap's CSS and Javascript.
   
-* Use a Twitter Bootstap layout in our application instead of the default Rails layout
+* [/] Use a Twitter Bootstap layout in our application instead of the default Rails layout
 
   The default Rails application layout has a minimal body structure
 
@@ -180,45 +180,50 @@
      
      Here's the end result:
      
-     #+BEGIN_SRC sh
+     #+BEGIN_SRC html
        <html>
-       <head>
-         <title>Bootstrap</title>
-         <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-         <%= csrf_meta_tags %>
-       </head>
+         <head>
+           <title>Bootstrap</title>
+           <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+           <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+           <%= csrf_meta_tags %>
+           <style>
+             body {
+             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+             }
+           </style>  
+         </head>
        
-           <body>
+         <body>
            
-             <div class="navbar navbar-inverse navbar-fixed-top">
-               <div class="navbar-inner">
-                 <div class="container">
-                   <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                   </button>
-                   <a class="brand" href="#">Project name</a>
-                   <div class="nav-collapse collapse">
-                     <ul class="nav">
-                       <li class="active"><a href="#">Home</a></li>
-                       <li><a href="#about">About</a></li>
-                       <li><a href="#contact">Contact</a></li>
-                     </ul>
-                   </div><!--/.nav-collapse -->
-                 </div>
+           <div class="navbar navbar-inverse navbar-fixed-top">
+             <div class="navbar-inner">
+               <div class="container">
+                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
+                 <a class="brand" href="#">Project name</a>
+                 <div class="nav-collapse collapse">
+                   <ul class="nav">
+                     <li class="active"><a href="#">Home</a></li>
+                     <li><a href="#about">About</a></li>
+                     <li><a href="#contact">Contact</a></li>
+                   </ul>
+                 </div><!--/.nav-collapse -->
                </div>
              </div>
-             <div class="container">
-               
-               <h1>Bootstrap starter template</h1>
-               <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-               <%= yield %>
-               
-             </div> <!-- /container -->
+           </div>
+           <div class="container">
              
-           </body>
+             <h1>Bootstrap starter template</h1>
+             <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+             <%= yield %>
+             
+           </div> <!-- /container -->
+           
+         </body>
        
        
        </body>
