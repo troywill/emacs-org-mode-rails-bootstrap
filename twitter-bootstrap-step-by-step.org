@@ -18,10 +18,10 @@
        git clone https://github.com/troywill/twitter-bootstrap-for-beginners.git
      #+END_SRC
   3. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
-     - Note the use of `--skip-stylesheets` since we will use Twitter Bootstap's stylesheets
      #+BEGIN_SRC sh
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
+     - Note the use of `--skip-stylesheets` since we will use Twitter Bootstap's stylesheets
   4. [ ] Set the default route to home/index in file:../config/routes.rb
      #+BEGIN_SRC ruby
        root 'home#index'
