@@ -9,7 +9,7 @@
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
   
-* [0/7] Part One: Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
+* Part One: Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
   1. [ ] Initialize a new Rails application
      #+BEGIN_SRC sh
        rails new bootstrap_tutorial
@@ -40,12 +40,32 @@
      #+BEGIN_EXAMPLE
      textmate ../../Gemfile
      #+END_EXAMPLE
-  6. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+  6. [ ] Examine your Rails installation again
+     #+BEGIN_SRC sh
+       rake about
+     #+END_SRC
+  7. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
      #+BEGIN_SRC sh
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
+     
      Note the use of '--skip-stylesheets' since we will use Twitter Bootstap's stylesheets
-  7. [ ] Set the default route to home/index in [[file:../config/routes.rb][config/routes.rb]]
+  8. [ ] Set the default route to home/index in [[file:../config/routes.rb][config/routes.rb]]
+     
+     Open [[file:../config/routes.rb][config/routes.rb]]  with your text editor. You will see the following
+     two commented lines near the top of the file:
+     #+BEGIN_SRC ruby
+       # You can have the root of your site routed with "root"
+       # root 'welcome#index'
+     #+END_SRC
+     # root 'welcome#index'
+     
+     Let's uncomment and change the root:
+
      #+BEGIN_SRC ruby
        root 'home#index'
      #+END_SRC
+     
+     Now, Rails will direct vistors to the application to home/index. We are
+     ready to start the Rails application and incorporate Twitter Bootstap's
+     stylesheets and JavaScript scripts.
