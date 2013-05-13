@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title></title>
-<!-- 2013-05-13 Mon 12:13 -->
+<!-- 2013-05-13 Mon 16:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <style type="text/css">
@@ -139,7 +139,9 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. Introduction</a></li>
-<li><a href="#sec-2">2. Part One: Build a Rails application with Twitter Bootstrap</a></li>
+<li><a href="#sec-2">2. Build an intial Rails application</a></li>
+<li><a href="#sec-3">3. <code>[0/4]</code> Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
+<li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstap's layout in our application instead of the default Rails layout</a></li>
 </ul>
 </div>
 </div>
@@ -149,7 +151,9 @@ for the JavaScript code in this tag.
 <p>
 This is a step by step tutorial for new Rails learners to learn how
 Twitter and Bootstrap works and to how to use Twitter Bootstrap to provide
-your application with modern layout and styling.
+your application with modern layout and styling. We will build a working
+Rails application to match the <a href="http://twitter.github.io/bootstrap/examples/starter-template.html">starter-template.html</a> template from
+<a href="http://twitter.github.io/bootstrap/getting-started.html#examples">getting-started.html#examples</a>.
 </p>
 
 <p>
@@ -164,20 +168,36 @@ from the twitter-bootstrap-step-by-step.org file.
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Part One: Build a Rails application with <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Build an intial Rails application</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+The <a href="http://twitter.github.io/bootstrap/index.html">Twitter Bootstrap project</a> website provides <a href="http://twitter.github.io/bootstrap/getting-started.html#examples">8 example layouts</a>. In this tutorial we
+will use the <a href="http://twitter.github.io/bootstrap/examples/starter-template.html">starter-template.html</a> template to see how to use Bootstap's CSS layout.
+</p>
+
+<p>
+See <a href="http://twitter.github.io/bootstrap/"><a href="http://twitter.github.io/bootstrap/">http://twitter.github.io/bootstrap/</a></a> -&gt; <a href="http://twitter.github.io/bootstrap/getting-started.html#examples">getting-started.html#examples</a> to view all 8 examples.
+See <a href="https://github.com/twitter/bootstrap">Bootstrap GitHub Repository</a> to view the developement repository.
+</p>
+
+<p>
+Let's build our example Rails application with a 'home' controller
+and 'home/index', "home/about", "home/contact" pages since those pages
+are in the <a href="http://twitter.github.io/bootstrap/examples/starter-template.html">starter-template.html</a> template.
+</p>
+
 <ol class="org-ol">
 <li><code>[&#xa0;]</code> Initialize a new Rails application
 <div class="org-src-container">
 
-<pre class="src src-sh">rails new bootstrap_tutorial
+<pre class="src src-sh">rails new bootstrap
 </pre>
 </div>
 </li>
 <li><code>[&#xa0;]</code> Change into the newly created Rails application directory
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #483d8b;">cd</span> bootstrap_tutorial
+<pre class="src src-sh"><span style="color: #483d8b;">cd</span> bootstrap
 </pre>
 </div>
 </li>
@@ -210,7 +230,7 @@ gem <span style="color: #8b2252;">'therubyracer'</span>, <span style="color: #00
 </div>
 
 <p>
-You might open <a href="../Gemfile">Gemfile</a> with <a href="http://macromates.com/">TextMate</a> this way:
+You might open <a href="../Gemfile">Gemfile</a> with Emacs, Vi, <a href="http://macromates.com/">TextMate</a>, etc. this way:
 </p>
 <pre class="example">
 textmate ../../Gemfile
@@ -262,12 +282,167 @@ ready to start the Rails application and incorporate Twitter Bootstap's
 stylesheets and JavaScript scripts.
 </p>
 </li>
+<li><code>[&#xa0;]</code> Start the rails server
+<div class="org-src-container">
+
+<pre class="src src-sh">rails server --port 3000
+</pre>
+</div>
+</li>
+</ol>
+
+<p>
+Now, let's incorporate Bootstrap into our application.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <code>[0/4]</code> Incorporate <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>'s CSS style sheets and JavaScript scripts.</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The heart of Twitter Bootstrap is two files: <a href="https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css">bootstrap.css</a> and <a href="https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js">bootstrap.js</a>. We copy
+the minified forms of those files ( bootstrap.min.css and bootstrap.min.js ) to our
+Rails application structure and Rails will detect and incorporate them into the application.
+</p>
+
+<ol class="org-ol">
+<li><code>[&#xa0;]</code> Download the Zipfile from Twitter Bootstap website from your web browser or web client.
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">./bin/fetch-bootstap-zip.sh</span>
+wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
+</pre>
+</div>
+</li>
+<li><code>[&#xa0;]</code> Decompress the bootstrap.zip Zip file
+<div class="org-src-container">
+
+<pre class="src src-sh">unzip bootstrap.zip
+</pre>
+</div>
+</li>
+<li><code>[&#xa0;]</code> Copy the Bootstrap CSS and Javascript files to our Rails application structure
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">./bin/copy-bootstrap-to-rails.sh</span>
+cp -iv bootstrap/css/bootstrap.min.css ../app/assets/stylesheets
+cp -iv bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets
+cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts
+</pre>
+</div>
+</li>
+<li><code>[&#xa0;]</code> Copy glyphicons-halflings.png and glyphicons-halflings-white.png
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">./bin/copy-bootstap-to-rails.sh</span>
+mkdir -v ../app/assets/images
+cp -iv bootstrap/img/glyphicons-halflings.png ../app/assets/images/
+cp -iv bootstrap/img/glyphicons-halflings-white.png ../app/assets/images/
+</pre>
+</div>
+</li>
+</ol>
+
+<p>
+Now that we have <a href="https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css">bootstrap.css</a> and <a href="https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js">bootstrap.js</a> incorporated into our Rails
+application we can proceed to change the default Rails application layout
+the use Bootstap's CSS and Javascript.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <code>[0/2]</code> Use Twitter Bootstap's layout in our application instead of the default Rails layout</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><code>[&#xa0;]</code> Copy starter-template.html.erb to 
+     <a href="app/views/layouts/starter-template.html.erb">app/views/layouts/starter-template.html.erb</a>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">this command will replace the default rails layout with a Twitter Bootstrap layout</span>
+cp -v app/views/layouts/starter-template.html.erb ../app/views/layouts/application.html.erb
+</pre>
+</div>
+
+<p>
+<a href="app/views/layouts/starter-template.html.erb">starter-template.html.erb</a> is Twitter Bootstrap's <a href="https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html">starter template</a> example merged
+with the default <a href="app/views/layouts/application.html.erb">app/views/layouts/application.html.erb</a> file that Rails generates.
+</p>
+
+<p>
+Here's the resulting app/views/layouts/application.html.erb:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="color: #0000ff;">html</span>&gt;
+&lt;<span style="color: #0000ff;">head</span>&gt;
+  &lt;<span style="color: #0000ff;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Bootstrap</span>&lt;/<span style="color: #0000ff;">title</span>&gt;
+  &lt;%= stylesheet_link_tag    <span style="color: #8b2252;">"application"</span>, media: <span style="color: #8b2252;">"all"</span>, <span style="color: #8b2252;">"data-turbolinks-track"</span> =&gt; true %&gt;
+  &lt;%= javascript_include_tag <span style="color: #8b2252;">"application"</span>, <span style="color: #8b2252;">"data-turbolinks-track"</span> =&gt; true %&gt;
+  &lt;%= csrf_meta_tags %&gt;
+  &lt;<span style="color: #0000ff;">style</span>&gt;
+    body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  &lt;/<span style="color: #0000ff;">style</span>&gt;  
+&lt;/<span style="color: #0000ff;">head</span>&gt;
+
+    &lt;<span style="color: #0000ff;">body</span>&gt;
+
+      &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"navbar navbar-inverse navbar-fixed-top"</span>&gt;
+        &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"navbar-inner"</span>&gt;
+          &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"container"</span>&gt;
+            &lt;<span style="color: #0000ff;">button</span> <span style="color: #a0522d;">type</span>=<span style="color: #8b2252;">"button"</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"btn btn-navbar"</span> <span style="color: #a0522d;">data-toggle</span>=<span style="color: #8b2252;">"collapse"</span> <span style="color: #a0522d;">data-target</span>=<span style="color: #8b2252;">".nav-collapse"</span>&gt;
+              &lt;<span style="color: #0000ff;">span</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"icon-bar"</span>&gt;&lt;/<span style="color: #0000ff;">span</span>&gt;
+              &lt;<span style="color: #0000ff;">span</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"icon-bar"</span>&gt;&lt;/<span style="color: #0000ff;">span</span>&gt;
+              &lt;<span style="color: #0000ff;">span</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"icon-bar"</span>&gt;&lt;/<span style="color: #0000ff;">span</span>&gt;
+            &lt;/<span style="color: #0000ff;">button</span>&gt;
+            &lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"brand"</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"#"</span>&gt;Project name&lt;/<span style="color: #0000ff;">a</span>&gt;
+            &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"nav-collapse collapse"</span>&gt;
+              &lt;<span style="color: #0000ff;">ul</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"nav"</span>&gt;
+                &lt;<span style="color: #0000ff;">li</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"active"</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"#"</span>&gt;Home&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"#about"</span>&gt;About&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"#contact"</span>&gt;Contact&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+              &lt;/<span style="color: #0000ff;">ul</span>&gt;
+            &lt;/<span style="color: #0000ff;">div</span>&gt;<span style="color: #b22222;">&lt;!--</span><span style="color: #b22222;">/.nav-collapse </span><span style="color: #b22222;">--&gt;</span>
+          &lt;/<span style="color: #0000ff;">div</span>&gt;
+        &lt;/<span style="color: #0000ff;">div</span>&gt;
+      &lt;/<span style="color: #0000ff;">div</span>&gt;
+      &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">class</span>=<span style="color: #8b2252;">"container"</span>&gt;
+
+        &lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Bootstrap starter template</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+        &lt;<span style="color: #0000ff;">p</span>&gt;Use this document as a way to quick start any new project.&lt;<span style="color: #0000ff;">br</span>&gt; All you get is this message and a barebones HTML document.&lt;/<span style="color: #0000ff;">p</span>&gt;
+        &lt;%= yield %&gt;
+
+      &lt;/<span style="color: #0000ff;">div</span>&gt; <span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">/container </span><span style="color: #b22222;">--&gt;</span>
+
+    &lt;/<span style="color: #0000ff;">body</span>&gt;
+
+
+&lt;/<span style="color: #0000ff;">body</span>&gt;
+&lt;/<span style="color: #0000ff;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+The starter example layout uses a fixed width layout, which is
+introduced at <a href="http://twitter.github.io/bootstrap/scaffolding.html#layouts">scaffolding.html#layouts</a>.
+</p>
+</li>
+
+<li><code>[&#xa0;]</code> Compare our application at <a href="http://localhost:3000">http://localhost:3000</a> with <a href="http://twitter.github.io/bootstrap/examples/starter-template.html">http://twitter.github.io/bootstrap/examples/starter-template.html</a>.
+
+<p>
+Our newly created Rails application running on port 3000 should have the 
+</p>
+</li>
 </ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2013-05-13 Mon 12:13</p>
+<p class="date">Created: 2013-05-13 Mon 16:14</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.0)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>
