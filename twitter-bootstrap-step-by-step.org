@@ -26,11 +26,11 @@
   
   1. [ ] Initialize a new Rails application
      #+BEGIN_SRC sh
-       rails new bootstrap_tutorial
+       rails new bootstrap
      #+END_SRC
   2. [ ] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
-       cd bootstrap_tutorial
+       cd bootstrap
      #+END_SRC
   3. [ ] Clone [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
      #+BEGIN_SRC sh
@@ -87,6 +87,8 @@
      #+BEGIN_SRC sh
        rails server --port 3000
      #+END_SRC
+
+  Now, let's incorporate Bootstrap into our application.
 * [6/6] Incorporate [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]'s CSS style sheets and JavaScript scripts.
 
   The heart of Twitter Bootstrap is two files: [[https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css][bootstrap.css]] and [[https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js][bootstrap.js]]. We copy
@@ -126,9 +128,17 @@
   application we can proceed to change the default Rails application layout
   the use Bootstap's CSS and Javascript.
   
-* [/] Use a Twitter Bootstap layout in our application instead of the default Rails layout
+* [/] Use Twitter Bootstap's layout in our application instead of the default Rails layout
 
-  The default Rails application layout has a minimal body structure
+  The default Rails application layout resides in file:../app/views/layouts/. Two embedded
+  ruby statements in the <head> section will pull in the Bootstap bootstrap.min.css and
+  bootstrap.min.js code into the application:
+  #+BEGIN_SRC html
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  #+END_SRC
+
+  
 
   #+BEGIN_SRC html
     <body>
@@ -139,8 +149,7 @@
       
   #+END_SRC
 
-  Well will use the body stucture from Twitter Bootrap's
-  [[http://twitter.github.io/bootstrap/getting-started.html#examples][getting-started.html#examples]] / [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][starter template]] example. The starter example layout may
+  We will use the body stucture from Twitter Bootsrap's [[http://twitter.github.io/bootstrap/getting-started.html#examples][getting-started.html#examples]] / [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][starter template]] example. The starter example layout may
   be viewed [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][directly on GitHub]]. The starter example layout uses a fixed width layout, which is
   introduced at [[http://twitter.github.io/bootstrap/scaffolding.html#layouts][scaffolding.html#layouts]]. 
 
