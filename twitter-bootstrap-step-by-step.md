@@ -22,8 +22,13 @@ from the twitter-bootstrap-step-by-step.org file.
 
 # Part One: Build an Rails application with
 
-Let's build an example Rails application with a 'home'
-controller and 'home/index', "home/about", "home/contact" pages.
+The [Twitter Bootstrap project](http://twitter.github.io/bootstrap/index.html) on Github provides [8 example layouts](http://twitter.github.io/bootstrap/getting-started.html#examples). In this tutorial we
+will use the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template.
+
+See [<http://twitter.github.io/bootstrap/>](http://twitter.github.io/bootstrap/) -> [getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples) to view all 8 examples.
+
+Let's build our example Rails application with a 'home'
+controller and 'home/index', "home/about", "home/contact" pages to match the  [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template.
 
 1.  [ ] Initialize a new Rails application
     
