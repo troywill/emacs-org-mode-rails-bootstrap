@@ -6,4 +6,23 @@
   You can follow the steps below to create a working Rails application. This tutorial
   was writing in Emacs Org Mode.
   
-* TODO Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
+* [0/4] Part One: Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
+  1. [ ] Initialize a new Rails application
+     #+BEGIN_SRC sh
+       rails new bootstrap_tutorial
+     #+END_SRC
+  2. [ ] Change into the newly created Rails application directory and clone
+     [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
+     #+BEGIN_SRC sh
+       cd bootstrap_tutorial
+       git clone https://github.com/troywill/twitter-bootstrap-for-beginners.git
+     #+END_SRC
+  3. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+     - Note the use of `--skip-stylesheets` since we will use Twitter Bootstap's stylesheets
+     #+BEGIN_SRC sh
+       rails generate controller home index about contact --skip-stylesheets
+     #+END_SRC
+  4. [ ] Set the default route to home/index in file:../config/routes.rb
+     #+BEGIN_SRC ruby
+       root 'home#index'
+     #+END_SRC
