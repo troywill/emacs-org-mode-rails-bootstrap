@@ -134,6 +134,92 @@ the use Bootstap's CSS and Javascript.
 
 # Use a Twitter Bootstap layout in our application instead of the default Rails layout
 
-1.  [X] backup application.html.erb
+The default Rails application layout has a minimal body structure
+
+    <body>
     
-        cp application.html.erb application.html.erb.rails
+    <%= yield %>
+    
+    </body>
+
+Well will use the body stucture from Twitter Bootrap's
+[getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples) / [starter template](https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html) example. The starter example layout may
+be viewed [directly on GitHub](https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html). The starter example layout uses a fixed width layout, which is
+introduced at [scaffolding.html#layouts](http://twitter.github.io/bootstrap/scaffolding.html#layouts). 
+
+    <body>
+    
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Project name</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">
+    
+        <h1>Bootstrap starter template</h1>
+        <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+    
+      </div> <!-- /container -->
+    
+    </body>
+
+1.  [ ] Replace the <body><% = yield %></body> section with the Bootstrap <body> section in <../app/views/layouts/application.html.erb>
+    
+    Here's the end result:
+    
+        <html>
+        <head>
+          <title>Bootstrap</title>
+          <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+          <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+          <%= csrf_meta_tags %>
+        </head>
+        
+            <body>
+        
+              <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                  <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">Project name</a>
+                    <div class="nav-collapse collapse">
+                      <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                      </ul>
+                    </div><!--/.nav-collapse -->
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+        
+                <h1>Bootstrap starter template</h1>
+                <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+                <%= yield %>
+        
+              </div> <!-- /container -->
+        
+            </body>
+        
+        
+        </body>
+        </html>
