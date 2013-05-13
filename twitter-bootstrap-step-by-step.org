@@ -1,7 +1,7 @@
 * Introduction
   
   This is a step by step tutorial for new Rails learners to learn how
-  Twitter and Bootstrap works and to how to use Twitter Bootstrap to provide
+  Twitter Bootstrap works and to how to use Twitter Bootstrap to provide
   your application with modern layout and styling. We will build a working
   Rails application to match the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template from
   [[http://twitter.github.io/bootstrap/getting-started.html#examples][getting-started.html#examples]].
@@ -12,7 +12,7 @@
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
   
-* Build an intial Rails application
+* [0/9] Build an initial Rails application
 
   The [[http://twitter.github.io/bootstrap/index.html][Twitter Bootstrap project]] website provides [[http://twitter.github.io/bootstrap/getting-started.html#examples][8 example layouts]]. In this tutorial we
   will use the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template to see how to use Bootstap's CSS layout.
