@@ -3,26 +3,49 @@
   Twitter and Bootstrap works and to how to use Twitter Bootstrap to provide
   your application with modern layout and styling.
 
-  You can follow the steps below to create a working Rails application. This tutorial
-  was writing in Emacs Org Mode.
+  You can follow the steps below to create a working Rails application.
+
+  Note for Emacs users: This tutorial was written in Emacs Org Mode. If
+  you are an Emacs Org Mode user you can carry out the steps in this tutorial
+  from the twitter-bootstrap-step-by-step.org file.
   
-* [0/4] Part One: Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
+* [0/7] Part One: Build a Rails application with [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]
   1. [ ] Initialize a new Rails application
      #+BEGIN_SRC sh
        rails new bootstrap_tutorial
      #+END_SRC
-  2. [ ] Change into the newly created Rails application directory and clone
-     [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
+  2. [ ] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
        cd bootstrap_tutorial
+     #+END_SRC
+  3. [ ] Clone [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
+     #+BEGIN_SRC sh
        git clone https://github.com/troywill/twitter-bootstrap-for-beginners.git
      #+END_SRC
-  3. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+  4. [ ] Examine your Rails installation
+     #+BEGIN_SRC sh
+       rake about
+     #+END_SRC
+  5. [ ] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
+     
+     You probably got a 'Could not find a JavaScript runtime.' message from the
+     'rake about' command. Open [[file:../Gemfile][Gemfile]] with your text editor and enable 'therubyracer.'
+     
+     #+BEGIN_SRC ruby
+       # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+       gem 'therubyracer', platforms: :ruby
+     #+END_SRC
+     
+     You might open [[file:../Gemfile][Gemfile]] with [[http://macromates.com/][TextMate]] this way:
+     #+BEGIN_EXAMPLE
+     textmate ../../Gemfile
+     #+END_EXAMPLE
+  6. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
      #+BEGIN_SRC sh
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
-     - Note the use of `--skip-stylesheets` since we will use Twitter Bootstap's stylesheets
-  4. [ ] Set the default route to home/index in file:../config/routes.rb
+     Note the use of '--skip-stylesheets' since we will use Twitter Bootstap's stylesheets
+  7. [ ] Set the default route to home/index in [[file:../config/routes.rb][config/routes.rb]]
      #+BEGIN_SRC ruby
        root 'home#index'
      #+END_SRC
