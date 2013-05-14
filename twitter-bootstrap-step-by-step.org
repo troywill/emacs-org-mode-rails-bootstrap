@@ -199,14 +199,26 @@
 * CSS, Sass, and LESS
 * Rails Bootstrap Gems
   #+TBLNAME: bootstrap_gems
-  | Gem                     | Version | GitHub | Downloads |
-  |-------------------------+---------+--------+-----------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 2.3.1.0 |        | 1,210,000 |
-  | twitter-bootstrap-rails |         |        | 590,000   |
-  |                         |         |        |           |
-** [/] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
-   1. [ ] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
+  | Gem                     | Version | GitHub | Downloads |         | Author          |
+  |-------------------------+---------+--------+-----------+---------+-----------------|
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 2.3.1.0 |        | 1,210,000 | 100,000 | Thomas McDonald |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.6 |        | 590,000   | 80,000  | Seyhun Akyurek  |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   2.3.2 |        | 110,000   | 7,000   | Ken Collins     |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |        | 2,000     | 300     | Wade Tandy      |
+  | bootstrap-rails         |         |        |           |         |                 |
+** [1/2] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+   1. [X] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
       #+BEGIN_SRC ruby
         gem 'bootstrap-sass', '~> 2.3.1.0'
       #+END_SRC
+   2. [ ] 
    
+
+  
+* Attic
+  - How to clone bootstrap
+     #+BEGIN_SRC sh
+       git clone https://github.com/twitter/bootstrap.git
+       cp bootstrap/bootstrap.css path/to/app/assets/stylesheets/
+     #+END_SRC
+  - Article [[http://rubysource.com/twitter-bootstrap-less-and-sass-understanding-your-options-for-rails-3-1/][Twitter Bootstrap, Less, and Sass]]
