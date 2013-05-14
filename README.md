@@ -6,6 +6,12 @@
 <li><a href="#sec-2">2. <code>[0/9]</code> Build an initial Rails application</a></li>
 <li><a href="#sec-3">3. <code>[0/4]</code> Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
 <li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap fixed width layout in our Rails application</a></li>
+<li><a href="#sec-5">5. CSS, Sass, and LESS</a></li>
+<li><a href="#sec-6">6. Rails Bootstrap Gems</a>
+<ul>
+<li><a href="#sec-6-1">6.1. </a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -17,19 +23,17 @@ your application with modern layout and styling. We will build a working
 Rails application to match the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template from
 [getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples).
 
-You can follow the steps below to create a working Rails application.
+The [Twitter Bootstrap project](http://twitter.github.io/bootstrap/index.html) website provides [8 example layouts](http://twitter.github.io/bootstrap/getting-started.html#examples). In this tutorial we
+will use the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template to see how to use Bootstrap's CSS layout.
+
+See [<http://twitter.github.io/bootstrap/>](http://twitter.github.io/bootstrap/) -> [getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples) to view all 8 examples.
+See [Bootstrap GitHub Repository](https://github.com/twitter/bootstrap) to view the developement repository.
 
 Note for Emacs users: This tutorial was written in Emacs Org Mode. If
 you are an Emacs Org Mode user you can carry out the steps in this tutorial
 from the twitter-bootstrap-step-by-step.org file.
 
 # <code>[0/9]</code> Build an initial Rails application
-
-The [Twitter Bootstrap project](http://twitter.github.io/bootstrap/index.html) website provides [8 example layouts](http://twitter.github.io/bootstrap/getting-started.html#examples). In this tutorial we
-will use the [starter-template.html](http://twitter.github.io/bootstrap/examples/starter-template.html) template to see how to use Bootstrap's CSS layout.
-
-See [<http://twitter.github.io/bootstrap/>](http://twitter.github.io/bootstrap/) -> [getting-started.html#examples](http://twitter.github.io/bootstrap/getting-started.html#examples) to view all 8 examples.
-See [Bootstrap GitHub Repository](https://github.com/twitter/bootstrap) to view the developement repository.
 
 Let's build our example Rails application with a 'home' controller
 and 'home/index', "home/about", "home/contact" pages since those pages
@@ -114,8 +118,9 @@ Rails application structure and Rails will detect and incorporate them into the 
 3.  [ ] Copy the Bootstrap CSS and Javascript files to our Rails application structure
     
         # ./bin/copy-bootstrap-to-rails.sh
-        cp -iv bootstrap/css/bootstrap.min.css ../app/assets/stylesheets/
-        cp -iv bootstrap/css/bootstrap-responsive.min.css ../app/assets/stylesheets/
+        mkdir -v ../app/assets/stylesheets/bootstrap
+        cp -iv bootstrap/css/bootstrap.css ../app/assets/stylesheets/bootstrap/
+        cp -iv bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets/bootstrap/
         cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts/
 
 4.  [ ] Copy glyphicons-halflings.png and glyphicons-halflings-white.png
@@ -199,3 +204,56 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
     Our newly created Rails application running on port 3000 should have essentially the
     same appearance as the example running on Twitter's github.io site. It it doesn't something
     went wrong.
+
+# CSS, Sass, and LESS
+
+# Rails Bootstrap Gems
+
+<table id="bootstrap_gems" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="right"/>
+
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Gem</th>
+<th scope="col" class="right">Version</th>
+<th scope="col" class="left">GitHub</th>
+<th scope="col" class="left">Downloads</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">[bootstrap-sass](http://rubygems.org/gems/bootstrap-sass)</td>
+<td class="right">2.3.1.0</td>
+<td class="left">&#xa0;</td>
+<td class="left">1,210,000</td>
+</tr>
+
+
+<tr>
+<td class="left">twitter-bootstrap-rails</td>
+<td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">590,000</td>
+</tr>
+
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+## 

@@ -105,8 +105,9 @@
   3. [ ] Copy the Bootstrap CSS and Javascript files to our Rails application structure
      #+BEGIN_SRC sh :tangle bin/copy-bootstrap-to-rails.sh :shebang #!/bin/sh
        # ./bin/copy-bootstrap-to-rails.sh
-       cp -iv bootstrap/css/bootstrap.min.css ../app/assets/stylesheets/
-       cp -iv bootstrap/css/bootstrap-responsive.min.css ../app/assets/stylesheets/
+       mkdir -v ../app/assets/stylesheets/bootstrap
+       cp -iv bootstrap/css/bootstrap.css ../app/assets/stylesheets/bootstrap/
+       cp -iv bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets/bootstrap/
        cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts/
 
      #+END_SRC
@@ -195,3 +196,12 @@
      same appearance as the example running on Twitter's github.io site. It it doesn't something
      went wrong.
 
+* CSS, Sass, and LESS
+* Rails Bootstrap Gems
+  #+TBLNAME: bootstrap_gems
+  | Gem                     | Version | GitHub | Downloads |
+  |-------------------------+---------+--------+-----------|
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 2.3.1.0 |        | 1,210,000 |
+  | twitter-bootstrap-rails |         |        | 590,000   |
+  |                         |         |        |           |
+** 
