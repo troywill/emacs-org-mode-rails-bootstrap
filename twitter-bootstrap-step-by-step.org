@@ -15,19 +15,19 @@
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
-* [0/4] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
-  1. [ ] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
+* [4/4] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+  1. [X] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
        gem 'bootstrap-sass', '~> 2.3.1.0'
      #+END_SRC
-  2. [ ] Remove the app/assets/stylesheets/application.css file
-  3. [ ] Create a new [[file:../app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+  2. [X] Remove the app/assets/stylesheets/application.css file
+  3. [X] Create a new [[file:../app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
      #+BEGIN_SRC css
        @import "bootstrap";
        body { padding-top: 60px; }
        @import "bootstrap-responsive";
      #+END_SRC
-  4. [ ] Import bootstrap javascript in [[file:../app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+  4. [X] Import bootstrap javascript in [[file:../app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
      #+BEGIN_SRC js
        //= require jquery
        //= require jquery_ujs
@@ -38,29 +38,29 @@
        // = require bootstrap
      #+END_SRC
   
-* [0/9] Build an initial Rails application
+* [9/9] Build an initial Rails application
 
   Let's build our example Rails application with a 'home' controller
   and 'home/index', "home/about", "home/contact" pages since those pages
   are in the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template.
   
-  1. [ ] Initialize a new Rails application
+  1. [X] Initialize a new Rails application
      #+BEGIN_SRC sh
        rails new bootstrap
      #+END_SRC
-  2. [ ] Change into the newly created Rails application directory
+  2. [X] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
        cd bootstrap
      #+END_SRC
-  3. [ ] Clone [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
+  3. [X] Clone [[https://github.com/troywill/twitter-bootstrap-for-beginners][this tutorial]] from Github.
      #+BEGIN_SRC sh :tangle bin/clone-twitter-bootstrap-for-beginners.sh :shebang #!/bin/bash
        git clone https://github.com/troywill/twitter-bootstrap-for-beginners.git
      #+END_SRC
-  4. [ ] Examine your Rails installation
+  4. [X] Examine your Rails installation
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  5. [ ] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
+  5. [X] Enable a JavaScript runtime in [[file:../Gemfile][Gemfile]]
      
      You probably got a 'Could not find a JavaScript runtime.' message from the
      'rake about' command. Open [[file:../Gemfile][Gemfile]] with your text editor and enable 'therubyracer.'
@@ -74,17 +74,17 @@
      #+BEGIN_EXAMPLE
      textmate ../../Gemfile
      #+END_EXAMPLE
-  6. [ ] Examine your Rails installation again
+  6. [X] Examine your Rails installation again
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  7. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+  7. [X] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
      #+BEGIN_SRC sh :tangle bin/generate-controller-home.sh :shebang #!/bin/sh
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
      
      Note the use of '--skip-stylesheets' since we will use Twitter Bootstrap's stylesheets
-  8. [ ] Set the default route to home/index in [[file:../config/routes.rb][config/routes.rb]]
+  8. [X] Set the default route to home/index in [[file:../config/routes.rb][config/routes.rb]]
      
      Open [[file:../config/routes.rb][config/routes.rb]]  with your text editor. You will see the following
      two commented lines near the top of the file:
@@ -103,7 +103,7 @@
      Now, Rails will direct vistors to the application to home/index. We are
      ready to start the Rails application and incorporate Twitter Bootstrap's
      stylesheets and JavaScript scripts.
-  9. [ ] Start the rails server
+  9. [X] Start the rails server
      #+BEGIN_SRC sh
        rails server --port 3000
      #+END_SRC
