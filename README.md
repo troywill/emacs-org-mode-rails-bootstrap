@@ -6,12 +6,10 @@
 <li><a href="#sec-2">2. <code>[0/9]</code> Build an initial Rails application</a></li>
 <li><a href="#sec-3">3. <code>[0/4]</code> Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
 <li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap fixed width layout in our Rails application</a></li>
-<li><a href="#sec-5">5. CSS, Sass, and LESS</a></li>
-<li><a href="#sec-6">6. Rails Bootstrap Gems</a>
-<ul>
-<li><a href="#sec-6-1">6.1. </a></li>
-</ul>
-</li>
+<li><a href="#sec-5">5. <code>[3/4]</code> Setting up Twitter Bootstrap with the bootstrap-sass Gem</a></li>
+<li><a href="#sec-6">6. CSS, Sass, and LESS</a></li>
+<li><a href="#sec-7">7. The most popular Rails Bootstrap Gems</a></li>
+<li><a href="#sec-8">8. Attic</a></li>
 </ul>
 </div>
 </div>
@@ -205,9 +203,33 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
     same appearance as the example running on Twitter's github.io site. It it doesn't something
     went wrong.
 
+# <code>[3/4]</code> Setting up Twitter Bootstrap with the [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass) Gem
+
+1.  [X] Enable bootstrap-sass in [Gemfile](../Gemfile)
+    
+        gem 'bootstrap-sass', '~> 2.3.1.0'
+
+2.  [X] Remove the app/assets/stylesheets/application.css file
+
+3.  [X] Create a new [app/assets/stylesheets/application.css.scss](../app/assets/stylesheets/application.css.scss) file
+    
+        @import "bootstrap";
+        body { padding-top: 60px; }
+        @import "bootstrap-responsive";
+
+4.  [ ] Import bootstrap javascript <../app/assets/javascripts/application.js>
+    
+        //= require jquery
+        //= require jquery_ujs
+        //= require turbolinks
+        //= require_tree .
+        //
+        // The following line Loads all Bootstrap javascripts
+        // = require bootstrap
+
 # CSS, Sass, and LESS
 
-# Rails Bootstrap Gems
+# The most popular Rails Bootstrap Gems
 
 <table id="bootstrap_gems" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -220,6 +242,10 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <col class="left"/>
 
 <col class="left"/>
+
+<col class="left"/>
+
+<col class="left"/>
 </colgroup>
 <thead>
 <tr>
@@ -227,6 +253,8 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <th scope="col" class="right">Version</th>
 <th scope="col" class="left">GitHub</th>
 <th scope="col" class="left">Downloads</th>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">Author</th>
 </tr>
 </thead>
 
@@ -236,24 +264,59 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <td class="right">2.3.1.0</td>
 <td class="left">&#xa0;</td>
 <td class="left">1,210,000</td>
+<td class="left">100,000</td>
+<td class="left">Thomas McDonald</td>
 </tr>
 
 
 <tr>
-<td class="left">twitter-bootstrap-rails</td>
-<td class="right">&#xa0;</td>
+<td class="left">[twitter-bootstrap-rails](http://rubygems.org/gems/twitter-bootstrap-rails)</td>
+<td class="right">2.2.6</td>
 <td class="left">&#xa0;</td>
 <td class="left">590,000</td>
+<td class="left">80,000</td>
+<td class="left">Seyhun Akyurek</td>
 </tr>
 
 
 <tr>
+<td class="left">[less-rails-bootstrap](http://rubygems.org/gems/less-rails-bootstrap)</td>
+<td class="right">2.3.2</td>
 <td class="left">&#xa0;</td>
+<td class="left">110,000</td>
+<td class="left">7,000</td>
+<td class="left">Ken Collins</td>
+</tr>
+
+
+<tr>
+<td class="left">[sass-twitter-bootstrap](http://rubygems.org/gems/sass-twitter-bootstrap)</td>
+<td class="right">2.3.0</td>
+<td class="left">&#xa0;</td>
+<td class="left">2,000</td>
+<td class="left">300</td>
+<td class="left">Wade Tandy</td>
+</tr>
+
+
+<tr>
+<td class="left">bootstrap-rails</td>
 <td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
 <td class="left">&#xa0;</td>
 <td class="left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 
-## 
+
+
+# Attic
+
+-   How to clone bootstrap
+    
+        git clone https://github.com/twitter/bootstrap.git
+        cp bootstrap/bootstrap.css path/to/app/assets/stylesheets/
+
+-   Article [Twitter Bootstrap, Less, and Sass](http://rubysource.com/twitter-bootstrap-less-and-sass-understanding-your-options-for-rails-3-1/)

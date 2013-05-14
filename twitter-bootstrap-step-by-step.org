@@ -195,9 +195,31 @@
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
      went wrong.
+* [3/4] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+  1. [X] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
+     #+BEGIN_SRC ruby
+       gem 'bootstrap-sass', '~> 2.3.1.0'
+     #+END_SRC
+  2. [X] Remove the app/assets/stylesheets/application.css file
+  3. [X] Create a new [[file:../app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+     #+BEGIN_SRC css
+       @import "bootstrap";
+       body { padding-top: 60px; }
+       @import "bootstrap-responsive";
+     #+END_SRC
+  4. [ ] Import bootstrap javascript file:../app/assets/javascripts/application.js
+     #+BEGIN_SRC js
+       //= require jquery
+       //= require jquery_ujs
+       //= require turbolinks
+       //= require_tree .
+       //
+       // The following line Loads all Bootstrap javascripts
+       // = require bootstrap
+     #+END_SRC
 
 * CSS, Sass, and LESS
-* Rails Bootstrap Gems
+* The most popular Rails Bootstrap Gems
   #+TBLNAME: bootstrap_gems
   | Gem                     | Version | GitHub | Downloads |         | Author          |
   |-------------------------+---------+--------+-----------+---------+-----------------|
@@ -206,15 +228,10 @@
   | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   2.3.2 |        | 110,000   | 7,000   | Ken Collins     |
   | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |        | 2,000     | 300     | Wade Tandy      |
   | bootstrap-rails         |         |        |           |         |                 |
-** [1/2] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
-   1. [X] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
-      #+BEGIN_SRC ruby
-        gem 'bootstrap-sass', '~> 2.3.1.0'
-      #+END_SRC
-   2. [ ] 
-   
 
   
+
+ 
 * Attic
   - How to clone bootstrap
      #+BEGIN_SRC sh
