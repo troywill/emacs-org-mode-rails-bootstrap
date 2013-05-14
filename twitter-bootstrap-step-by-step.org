@@ -15,6 +15,28 @@
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
+* [0/4] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+  1. [ ] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
+     #+BEGIN_SRC ruby
+       gem 'bootstrap-sass', '~> 2.3.1.0'
+     #+END_SRC
+  2. [ ] Remove the app/assets/stylesheets/application.css file
+  3. [ ] Create a new [[file:../app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+     #+BEGIN_SRC css
+       @import "bootstrap";
+       body { padding-top: 60px; }
+       @import "bootstrap-responsive";
+     #+END_SRC
+  4. [ ] Import bootstrap javascript in [[file:../app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+     #+BEGIN_SRC js
+       //= require jquery
+       //= require jquery_ujs
+       //= require turbolinks
+       //= require_tree .
+       //
+       // The following line Loads all Bootstrap javascripts
+       // = require bootstrap
+     #+END_SRC
   
 * [0/9] Build an initial Rails application
 
@@ -87,42 +109,6 @@
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
-* [0/4] Incorporate [[http://twitter.github.io/bootstrap/][Twitter Bootstrap]]'s CSS style sheets and JavaScript scripts.
-
-  The heart of Twitter Bootstrap is two files: [[https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css][bootstrap.css]] and [[https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js][bootstrap.js]]. We copy
-  the minified forms of those files ( bootstrap.min.css and bootstrap.min.js ) to our
-  Rails application structure and Rails will detect and incorporate them into the application.
-  
-  1. [ ] Download the Zipfile from Twitter Bootstrap website from your web browser or web client.
-     #+BEGIN_SRC sh :tangle bin/fetch-bootstrap-zip.sh :shebang #!/bin/sh
-       # ./bin/fetch-bootstrap-zip.sh
-       wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
-     #+END_SRC
-  2. [ ] Decompress the bootstrap.zip Zip file
-     #+BEGIN_SRC sh
-       unzip bootstrap.zip
-     #+END_SRC
-  3. [ ] Copy the Bootstrap CSS and Javascript files to our Rails application structure
-     #+BEGIN_SRC sh :tangle bin/copy-bootstrap-to-rails.sh :shebang #!/bin/sh
-       # ./bin/copy-bootstrap-to-rails.sh
-       mkdir -v ../app/assets/stylesheets/bootstrap
-       cp -iv bootstrap/css/bootstrap.css ../app/assets/stylesheets/bootstrap/
-       cp -iv bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets/bootstrap/
-       cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts/
-
-     #+END_SRC
-  4. [ ] Copy glyphicons-halflings.png and glyphicons-halflings-white.png
-     #+BEGIN_SRC sh :tangle bin/copy-images-to-rails.sh :shebang #!/bin/sh
-       # ./bin/copy-bootstrap-to-rails.sh
-       mkdir -v ../app/assets/images
-       cp -iv bootstrap/img/glyphicons-halflings.png ../app/assets/images/
-       cp -iv bootstrap/img/glyphicons-halflings-white.png ../app/assets/images/
-     #+END_SRC
-     
-  Now that we have [[https://github.com/twitter/bootstrap/blob/master/docs/assets/css/bootstrap.css][bootstrap.css]] and [[https://github.com/twitter/bootstrap/blob/master/docs/assets/js/bootstrap.js][bootstrap.js]] incorporated into our Rails
-  application we can proceed to change the default Rails application layout
-  to use Bootstrap's CSS and Javascript.
-  
 * [0/2] Use Twitter Bootstrap fixed width layout in our Rails application
 
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
@@ -195,31 +181,9 @@
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
      went wrong.
-* [3/4] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
-  1. [X] Enable bootstrap-sass in [[file:../Gemfile][Gemfile]]
-     #+BEGIN_SRC ruby
-       gem 'bootstrap-sass', '~> 2.3.1.0'
-     #+END_SRC
-  2. [X] Remove the app/assets/stylesheets/application.css file
-  3. [X] Create a new [[file:../app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
-     #+BEGIN_SRC css
-       @import "bootstrap";
-       body { padding-top: 60px; }
-       @import "bootstrap-responsive";
-     #+END_SRC
-  4. [ ] Import bootstrap javascript file:../app/assets/javascripts/application.js
-     #+BEGIN_SRC js
-       //= require jquery
-       //= require jquery_ujs
-       //= require turbolinks
-       //= require_tree .
-       //
-       // The following line Loads all Bootstrap javascripts
-       // = require bootstrap
-     #+END_SRC
 
-* CSS, Sass, and LESS
-* The most popular Rails Bootstrap Gems
+* Reference Section
+** The most popular Rails Bootstrap Gems
   #+TBLNAME: bootstrap_gems
   | Gem                     | Version | GitHub | Downloads |         | Author          |
   |-------------------------+---------+--------+-----------+---------+-----------------|
@@ -228,14 +192,3 @@
   | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   2.3.2 |        | 110,000   | 7,000   | Ken Collins     |
   | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |        | 2,000     | 300     | Wade Tandy      |
   | bootstrap-rails         |         |        |           |         |                 |
-
-  
-
- 
-* Attic
-  - How to clone bootstrap
-     #+BEGIN_SRC sh
-       git clone https://github.com/twitter/bootstrap.git
-       cp bootstrap/bootstrap.css path/to/app/assets/stylesheets/
-     #+END_SRC
-  - Article [[http://rubysource.com/twitter-bootstrap-less-and-sass-understanding-your-options-for-rails-3-1/][Twitter Bootstrap, Less, and Sass]]
