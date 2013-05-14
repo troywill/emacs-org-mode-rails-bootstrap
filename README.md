@@ -114,9 +114,9 @@ Rails application structure and Rails will detect and incorporate them into the 
 3.  [ ] Copy the Bootstrap CSS and Javascript files to our Rails application structure
     
         # ./bin/copy-bootstrap-to-rails.sh
-        cp -iv bootstrap/css/bootstrap.min.css ../app/assets/stylesheets
-        cp -iv bootstrap/css/bootstrap-responsive.css ../app/assets/stylesheets
-        cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts
+        cp -iv bootstrap/css/bootstrap.min.css ../app/assets/stylesheets/
+        cp -iv bootstrap/css/bootstrap-responsive.min.css ../app/assets/stylesheets/
+        cp -iv bootstrap/js/bootstrap.min.js ../app/assets/javascripts/
 
 4.  [ ] Copy glyphicons-halflings.png and glyphicons-halflings-white.png
     
