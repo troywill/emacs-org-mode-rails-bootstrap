@@ -5,7 +5,7 @@
 <li><a href="#sec-1">1. Introduction</a></li>
 <li><a href="#sec-2">2. <code>[0/9]</code> Build an initial Rails application</a></li>
 <li><a href="#sec-3">3. <code>[0/4]</code> Incorporate Twitter Bootstrap's CSS style sheets and JavaScript scripts.</a></li>
-<li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap's layout in our application instead of the default Rails layout</a></li>
+<li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap fixed width layout in our Rails application</a></li>
 </ul>
 </div>
 </div>
@@ -129,7 +129,9 @@ Now that we have [bootstrap.css](https://github.com/twitter/bootstrap/blob/maste
 application we can proceed to change the default Rails application layout
 to use Bootstrap's CSS and Javascript.
 
-# <code>[0/2]</code> Use Twitter Bootstrap's layout in our application instead of the default Rails layout
+# <code>[0/2]</code> Use Twitter Bootstrap fixed width layout in our Rails application
+
+Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
 1.  [ ] Overwrite app/views/layouts/application.html.erb with [starter-template.html.erb](app/views/layouts/starter-template.html.erb) 
     
