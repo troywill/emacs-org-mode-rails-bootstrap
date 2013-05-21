@@ -8,7 +8,8 @@
 <li><a href="#sec-4">4. <code>[0/2]</code> Use Twitter Bootstrap fixed width layout in our Rails application</a></li>
 <li><a href="#sec-5">5. Reference Section</a>
 <ul>
-<li><a href="#sec-5-1">5.1. The most popular Rails Bootstrap Gems</a></li>
+<li><a href="#sec-5-1">5.1. Twitter Bootstrap GitHub</a></li>
+<li><a href="#sec-5-2">5.2. The most popular Rails Bootstrap Gems</a></li>
 </ul>
 </li>
 </ul>
@@ -196,6 +197,43 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 
 # Reference Section
 
+## Twitter Bootstrap GitHub
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left"/>
+
+<col class="left"/>
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Link</th>
+<th scope="col" class="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left"><https://github.com/twitter/bootstrap></td>
+<td class="left">The Twitter Bootstrap GitHub repository</td>
+</tr>
+
+
+<tr>
+<td class="left">[/docs/examples/starter-template.html](https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html)</td>
+<td class="left">Example #1 from Twitter Bootstrap</td>
+</tr>
+
+
+<tr>
+<td class="left">[/docs/examples/hero.html](https://github.com/twitter/bootstrap/blob/master/docs/examples/hero.html)</td>
+<td class="left">Example #2 from Twitter Bootstrap</td>
+</tr>
+</tbody>
+</table>
+
 ## The most popular Rails Bootstrap Gems
 
 <table id="bootstrap_gems" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -220,7 +258,7 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <th scope="col" class="right">Version</th>
 <th scope="col" class="left">GitHub</th>
 <th scope="col" class="left">Downloads</th>
-<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">This ver.</th>
 <th scope="col" class="left">Author</th>
 </tr>
 </thead>
@@ -230,8 +268,8 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <td class="left">[bootstrap-sass](http://rubygems.org/gems/bootstrap-sass)</td>
 <td class="right">2.3.1.0</td>
 <td class="left">&#xa0;</td>
-<td class="left">1,210,000</td>
-<td class="left">100,000</td>
+<td class="left">1,230,000</td>
+<td class="left">110,000</td>
 <td class="left">Thomas McDonald</td>
 </tr>
 
@@ -240,8 +278,8 @@ Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our appl
 <td class="left">[twitter-bootstrap-rails](http://rubygems.org/gems/twitter-bootstrap-rails)</td>
 <td class="right">2.2.6</td>
 <td class="left">&#xa0;</td>
-<td class="left">590,000</td>
-<td class="left">80,000</td>
+<td class="left">600,000</td>
+<td class="left">90,000</td>
 <td class="left">Seyhun Akyurek</td>
 </tr>
 
