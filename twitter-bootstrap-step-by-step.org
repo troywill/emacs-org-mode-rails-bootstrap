@@ -6,8 +6,6 @@
   tested on November 19, 2013 by Troy Will. We will build a working
   Rails application to match the [[http://getbootstrap.com/examples/starter-template/][starter-template]] template from [[http://getbootstrap.com/getting-started/#examples][example layouts]]. 
 
-  See the [[https://github.com/twbs/bootstrap][Bootstrap GitHub repository]].
-
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
