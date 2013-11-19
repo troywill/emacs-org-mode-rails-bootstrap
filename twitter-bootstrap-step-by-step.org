@@ -42,7 +42,7 @@
      
      You might open [[file:../Gemfile][Gemfile]] with Emacs, Vi, [[http://macromates.com/][TextMate]], etc. this way:
      #+BEGIN_EXAMPLE
-     textmate ../../Gemfile
+       textmate ../../Gemfile
      #+END_EXAMPLE
   5. [ ] Examine your Rails installation again
      #+BEGIN_SRC sh
@@ -54,6 +54,7 @@
      #+END_SRC
      
      Note the use of '--skip-stylesheets' since we will use Twitter Bootstrap's stylesheets
+
   7. [ ] Set the default route to home/index in [[file:config/routes.rb][config/routes.rb]]
      
      Open [[file:config/routes.rb][config/routes.rb]]  with your text editor. You will see the following
@@ -77,11 +78,11 @@
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
-* Milestone 2: Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+* Milestone 2: Sett up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [ ] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
-       # See http://rubygems.org/gems/bootstrap-sass
-       gem "bootstrap-sass", "~> 2.3.2.2"
+       # See http://rubygems.org/gems/bootstrap-sass (November 2013)
+       gem "bootstrap-sass", "~> 3.0.2.1"
      #+END_SRC
   2. [ ] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
      #+BEGIN_SRC css
@@ -178,18 +179,19 @@
      went wrong.
 
 * Reference Section
+
 ** Twitter Bootstrap GitHub
    | Link                                 | Description                             |
    |--------------------------------------+-----------------------------------------|
-   | https://github.com/twitter/bootstrap | The Twitter Bootstrap GitHub repository |
+   | [[https://github.com/twbs/bootstrap]]    | The Twitter Bootstrap GitHub repository |
    | [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][/docs/examples/starter-template.html]] | Example #1 from Twitter Bootstrap       |
    | [[https://github.com/twitter/bootstrap/blob/master/docs/examples/hero.html][/docs/examples/hero.html]]             | Example #2 from Twitter Bootstrap       |
+
 ** The most popular Rails Bootstrap Gems
   #+TBLNAME: bootstrap_gems
-  | Gem                     | Version | GitHub | Downloads | This ver. | Author          |
-  |-------------------------+---------+--------+-----------+-----------+-----------------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 2.3.1.0 |        | 1,230,000 | 110,000   | Thomas McDonald |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.6 |        | 600,000   | 90,000    | Seyhun Akyurek  |
-  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   2.3.2 |        | 110,000   | 7,000     | Ken Collins     |
-  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |        | 2,000     | 300       | Wade Tandy      |
-  | bootstrap-rails         |         |        |           |           |                 |
+  | Gem                     | Version | Downloads | This version | Author          | GitHub |
+  |-------------------------+---------+-----------+--------------+-----------------+--------|
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.0.2.1 | 2,400,000 | 8,200        | Thomas McDonald |        |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 960,000   | 99,000       | Seyhun Akyurek  |        |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.0.5 | 170,000   | 1,000        | Ken Collins     |        |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 3,900     | 720          | Wade Tandy      |        |
