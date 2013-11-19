@@ -2,15 +2,17 @@
   
   This is a step by step tutorial for new Rails learners to learn how
   [[http://getbootstrap.com][Twitter Bootstrap]] works and to how to use Twitter Bootstrap to provide
-  your application with modern layout and styling. We will build a working
+  your application with modern layout and styling. This tutorial was last
+  tested on Tuesday, November 19 by Troy Will. We will build a working
   Rails application to match the [[http://getbootstrap.com/examples/starter-template/][starter-template]] template from [[http://getbootstrap.com/getting-started/#examples][example layouts]]. 
 
-  See the [[https://github.com/twbs/bootstrap][Bootstrap GitHub repository]] to view the developement repository.
+  See the [[https://github.com/twbs/bootstrap][Bootstrap GitHub repository]].
 
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
   you are an Emacs Org Mode user you can carry out the steps in this tutorial
   from the twitter-bootstrap-step-by-step.org file.
-* [/] Build an initial Rails application
+
+* [/] Milestone 1: Build an initial Rails application
 
   Let's build our example Rails application with a 'home' controller
   and 'home/index', "home/about", "home/contact" pages since those pages
@@ -75,7 +77,7 @@
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
-* [/] Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
+* [/] Milestone 2: Setting up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] Gem
   1. [ ] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
        # See http://rubygems.org/gems/bootstrap-sass
@@ -98,7 +100,7 @@
        // The following line Loads all Bootstrap javascripts
        // = require bootstrap
      #+END_SRC
-* [/] Use Twitter Bootstrap fixed width layout in our Rails application
+* [/] Milestone 3: Use Twitter Bootstrap fixed width layout in our Rails application
   
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
