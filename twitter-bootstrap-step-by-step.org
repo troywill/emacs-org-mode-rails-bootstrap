@@ -177,19 +177,15 @@
      went wrong.
 
 * Reference Section
-
 ** Twitter Bootstrap GitHub
    | Link                                 | Description                             |
    |--------------------------------------+-----------------------------------------|
    | [[https://github.com/twbs/bootstrap]]    | The Twitter Bootstrap GitHub repository |
-   | [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][/docs/examples/starter-template.html]] | Example #1 from Twitter Bootstrap       |
-   | [[https://github.com/twitter/bootstrap/blob/master/docs/examples/hero.html][/docs/examples/hero.html]]             | Example #2 from Twitter Bootstrap       |
-
-** The most popular Rails Bootstrap Gems
+** The most popular Rails Bootstrap Gems (November 2013)
   #+TBLNAME: bootstrap_gems
-  | Gem                     | Version | Downloads | This version | Author          | GitHub |
-  |-------------------------+---------+-----------+--------------+-----------------+--------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.0.2.1 | 2,400,000 | 8,200        | Thomas McDonald |        |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 960,000   | 99,000       | Seyhun Akyurek  |        |
-  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.0.5 | 170,000   | 1,000        | Ken Collins     |        |
-  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 3,900     | 720          | Wade Tandy      |        |
+  | Gem                     | Version | Downloads | This version | Author          |
+  |-------------------------+---------+-----------+--------------+-----------------|
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.0.2.1 | 2,400,000 | 8,200        | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 960,000   | 99,000       | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.0.5 | 170,000   | 1,000        | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 3,900     | 720          | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
