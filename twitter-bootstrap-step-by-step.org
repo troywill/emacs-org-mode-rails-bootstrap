@@ -20,7 +20,7 @@
   
   1. [ ] Initialize a new Rails application
      #+BEGIN_SRC sh
-       rails new bootstrap
+       rails new example
      #+END_SRC
   2. [ ] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
@@ -78,7 +78,7 @@
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
-* Milestone 2: Sett up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
+* Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [ ] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
        # See http://rubygems.org/gems/bootstrap-sass (November 2013)
