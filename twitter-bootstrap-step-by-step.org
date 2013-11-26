@@ -16,22 +16,21 @@
   and 'home/index', "home/about", "home/contact" pages since those pages
   are in the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template.
   
-  1. [ ] Initialize a new Rails application
+  1. [X] Initialize a new Rails application
      #+BEGIN_SRC sh
        rails new example
      #+END_SRC
-  2. [ ] Change into the newly created Rails application directory
+  2. [X] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
-       cd bootstrap
+       cd example
      #+END_SRC
-  3. [ ] Examine your Rails installation
+  3. [X] Examine your Rails installation
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  4. [ ] Enable a JavaScript runtime in [[file:Gemfile][Gemfile]]
-     
+  4. [X] Enable a JavaScript runtime in [[file:Gemfile][Gemfile]]
      You probably got a 'Could not find a JavaScript runtime.' message from the
-     'rake about' command. Open [[file:../Gemfile][Gemfile]] with your text editor and enable 'therubyracer.'
+     'rake about' command. Open [[file:Gemfile][Gemfile]] with your text editor and enable 'therubyracer.'
      
      #+BEGIN_SRC ruby
        # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -42,18 +41,18 @@
      #+BEGIN_EXAMPLE
        textmate ../../Gemfile
      #+END_EXAMPLE
-  5. [ ] Examine your Rails installation again
+  5. [X] Examine your Rails installation again
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  6. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
-     #+BEGIN_SRC sh :tangle bin/generate-controller-home.sh :shebang #!/bin/sh
+  6. [X] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+     #+BEGIN_SRC sh :tangle bin/generate-controller-home.sh :shebang #!/bin/bash
+       set -o verbose
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
      
      Note the use of '--skip-stylesheets' since we will use Twitter Bootstrap's stylesheets
-
-  7. [ ] Set the default route to home/index in [[file:config/routes.rb][config/routes.rb]]
+  7. [X] Set the default route to home/index in [[file:config/routes.rb][config/routes.rb]]
      
      Open [[file:config/routes.rb][config/routes.rb]]  with your text editor. You will see the following
      commented line near the top of the file:
@@ -70,26 +69,26 @@
      Now, Rails will direct vistors to the application to home/index. We are
      ready to start the Rails application and incorporate Twitter Bootstrap's
      stylesheets and JavaScript scripts.
-  8. [ ] Start the rails server
+  8. [X] Start the rails server
      #+BEGIN_SRC sh
        rails server --port 3000
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
-* Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
-  1. [ ] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
+* Milestone 2: Set up Twitter Bootstrap with the [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] gem
+  1. [X] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
        # See http://rubygems.org/gems/bootstrap-sass (November 2013)
        gem "bootstrap-sass", "~> 3.0.2.1"
      #+END_SRC
-  2. [ ] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
-     #+BEGIN_SRC css
+  2. [X] Intall the bootstrap-sass (if necessary) with `bundle install.`
+  3. [X] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+     #+BEGIN_SRC css :tangle application.css.scss
        @import "bootstrap";
        body { padding-top: 60px; }
-       @import "bootstrap-responsive";
      #+END_SRC
-  3. [ ] Remove the app/assets/stylesheets/application.css file
-  4. [ ] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+  4. [X] Remove the [[file:app/assets/stylesheets/application.css][app/assets/stylesheets/application.css]] file
+  5. [X] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
      #+BEGIN_SRC js
        //= require jquery
        //= require jquery_ujs
@@ -103,74 +102,60 @@
   
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
-  1. [ ] Overwrite app/views/layouts/application.html.erb with [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] 
+  1. [X] Overwrite app/views/layouts/application.html.erb with [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] 
      
      #+BEGIN_SRC html
      
      #+END_SRC
 
-     #+BEGIN_SRC sh :tangle bin/copy-starter-template.sh :shebang #!/bin/sh
-       # ./bin/copy-starter-template.sh
-       # this command will replace the default rails layout with a Twitter Bootstrap layout
-       cp -v app/views/layouts/starter-template.html.erb ../app/views/layouts/application.html.erb
-     #+END_SRC
-     
      [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] is Twitter Bootstrap's [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][starter template]] example merged
      with the default [[file:app/views/layouts/application.html.erb][app/views/layouts/application.html.erb]] file that Rails generates.
      
      Here's the resulting app/views/layouts/application.html.erb:
-     #+BEGIN_SRC html
+     #+BEGIN_SRC html :tangle application.html.erb
        <html>
        <head>
          <title>Bootstrap</title>
          <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
          <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
          <%= csrf_meta_tags %>
-         <style>
-           body {
-           padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-           }
-         </style>  
        </head>
-       
-           <body>
-           
-             <div class="navbar navbar-inverse navbar-fixed-top">
-               <div class="navbar-inner">
-                 <div class="container">
-                   <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                   </button>
-                   <a class="brand" href="#">Project name</a>
-                   <div class="nav-collapse collapse">
-                     <ul class="nav">
-                       <li class="active"><a href="#">Home</a></li>
-                       <li><a href="#about">About</a></li>
-                       <li><a href="#contact">Contact</a></li>
-                     </ul>
-                   </div><!--/.nav-collapse -->
-                 </div>
-               </div>
+       <body>
+         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container">
+             <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Project name</a>
              </div>
-             <div class="container">
-               
-               <h1>Bootstrap starter template</h1>
-               <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-               <%= yield %>
-               
-             </div> <!-- /container -->
-             
-           </body>
+             <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav">
+                 <li class="active"><a href="#">Home</a></li>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#contact">Contact</a></li>
+               </ul>
+             </div><!--/.nav-collapse -->
+           </div>
+         </div>
        
-       
-       </body>
+         <div class="container">
+           
+           <div class="starter-template">
+             <h1>Bootstrap starter template</h1>
+             <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+           </div>
+           
+         </div><!-- /.container -->
+         </body>
        </html>
      #+END_SRC
 
      The starter example layout uses a fixed width layout, which is introduced at [[http://twitter.github.io/bootstrap/scaffolding.html#layouts][scaffolding.html#layouts]].
-  2. [ ] Compare our application at http://localhost:3000 with http://twitter.github.io/bootstrap/examples/starter-template.html.
+  2. [X] Compare our application at http://localhost:3000 with http://twitter.github.io/bootstrap/examples/starter-template.html.
      
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
@@ -189,3 +174,75 @@
   | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 960,000   | 99,000       | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
   | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.0.5 | 170,000   | 1,000        | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
   | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 3,900     | 720          | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
+** starter-template November 26, 2013
+   #+BEGIN_SRC html
+     <!DOCTYPE html>
+     <html lang="en">
+       <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="description" content="">
+         <meta name="author" content="">
+         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+     
+         <title>Starter Template for Bootstrap</title>
+     
+         <!-- Bootstrap core CSS -->
+         <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+     
+         <!-- Custom styles for this template -->
+         <link href="starter-template.css" rel="stylesheet">
+     
+         <!-- Just for debugging purposes. Don't actually copy this line! -->
+         <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+     
+         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+         <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+         <![endif]-->
+       </head>
+     
+       <body>
+     
+         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container">
+             <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Project name</a>
+             </div>
+             <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav">
+                 <li class="active"><a href="#">Home</a></li>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#contact">Contact</a></li>
+               </ul>
+             </div><!--/.nav-collapse -->
+           </div>
+         </div>
+     
+         <div class="container">
+     
+           <div class="starter-template">
+             <h1>Bootstrap starter template</h1>
+             <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+           </div>
+     
+         </div><!-- /.container -->
+     
+     
+         <!-- Bootstrap core JavaScript
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+         <script src="../../dist/js/bootstrap.min.js"></script>
+       </body>
+     </html>
+        
+   #+END_SRC
