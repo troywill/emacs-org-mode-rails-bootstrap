@@ -16,19 +16,19 @@
   and 'home/index', "home/about", "home/contact" pages since those pages
   are in the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template.
   
-  1. [X] Initialize a new Rails application
+  1. [ ] Initialize a new Rails application
      #+BEGIN_SRC sh
        rails new example
      #+END_SRC
-  2. [X] Change into the newly created Rails application directory
+  2. [ ] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
        cd example
      #+END_SRC
-  3. [X] Examine your Rails installation
+  3. [ ] Examine your Rails installation
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  4. [X] Enable a JavaScript runtime in [[file:Gemfile][Gemfile]]
+  4. [ ] Enable a JavaScript runtime in [[file:Gemfile][Gemfile]]
      You probably got a 'Could not find a JavaScript runtime.' message from the
      'rake about' command. Open [[file:Gemfile][Gemfile]] with your text editor and enable 'therubyracer.'
      
@@ -41,18 +41,18 @@
      #+BEGIN_EXAMPLE
        textmate ../../Gemfile
      #+END_EXAMPLE
-  5. [X] Examine your Rails installation again
+  5. [ ] Examine your Rails installation again
      #+BEGIN_SRC sh
        rake about
      #+END_SRC
-  6. [X] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
+  6. [ ] Create a “home” controller and “home/index”, "home/about", "home/contact" pages
      #+BEGIN_SRC sh :tangle bin/generate-controller-home.sh :shebang #!/bin/bash
        set -o verbose
        rails generate controller home index about contact --skip-stylesheets
      #+END_SRC
      
      Note the use of '--skip-stylesheets' since we will use Twitter Bootstrap's stylesheets
-  7. [X] Set the default route to home/index in [[file:config/routes.rb][config/routes.rb]]
+  7. [ ] Set the default route to home/index in [[file:config/routes.rb][config/routes.rb]]
      
      Open [[file:config/routes.rb][config/routes.rb]]  with your text editor. You will see the following
      commented line near the top of the file:
@@ -69,26 +69,26 @@
      Now, Rails will direct vistors to the application to home/index. We are
      ready to start the Rails application and incorporate Twitter Bootstrap's
      stylesheets and JavaScript scripts.
-  8. [X] Start the rails server
+  8. [ ] Start the rails server
      #+BEGIN_SRC sh
        rails server --port 3000
      #+END_SRC
 
   Now, let's incorporate Bootstrap into our application.
 * Milestone 2: Set up Twitter Bootstrap with the [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] gem
-  1. [X] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
+  1. [ ] Enable bootstrap-sass in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
        # See http://rubygems.org/gems/bootstrap-sass (November 2013)
        gem "bootstrap-sass", "~> 3.0.2.1"
      #+END_SRC
-  2. [X] Intall the bootstrap-sass (if necessary) with `bundle install.`
-  3. [X] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+  2. [ ] Intall the bootstrap-sass (if necessary) with `bundle install.`
+  3. [ ] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
      #+BEGIN_SRC css :tangle application.css.scss
        @import "bootstrap";
-       body { padding-top: 60px; }
+       body { padding-top: 50px; }
      #+END_SRC
-  4. [X] Remove the [[file:app/assets/stylesheets/application.css][app/assets/stylesheets/application.css]] file
-  5. [X] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+  4. [ ] Remove the [[file:app/assets/stylesheets/application.css][app/assets/stylesheets/application.css]] file
+  5. [ ] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
      #+BEGIN_SRC js
        //= require jquery
        //= require jquery_ujs
@@ -102,7 +102,7 @@
   
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
-  1. [X] Overwrite app/views/layouts/application.html.erb with [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] 
+  1. [ ] Overwrite app/views/layouts/application.html.erb with [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] 
      
      #+BEGIN_SRC html
      
@@ -155,7 +155,7 @@
      #+END_SRC
 
      The starter example layout uses a fixed width layout, which is introduced at [[http://twitter.github.io/bootstrap/scaffolding.html#layouts][scaffolding.html#layouts]].
-  2. [X] Compare our application at http://localhost:3000 with http://twitter.github.io/bootstrap/examples/starter-template.html.
+  2. [ ] Compare our application at http://localhost:3000 with http://twitter.github.io/bootstrap/examples/starter-template.html.
      
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
