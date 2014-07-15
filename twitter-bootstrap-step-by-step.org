@@ -3,7 +3,7 @@
   This is a step by step tutorial for new Rails learners to learn how
   [[http://getbootstrap.com][Twitter Bootstrap]] works and to how to use Twitter Bootstrap to provide
   your application with modern layout and styling. This tutorial was last
-  tested on December 4, 2013 by Troy Will. We will build a working
+  tested on July 15, 2014 by Troy Will. We will build a working
   Rails application to match the [[http://getbootstrap.com/examples/starter-template/][starter-template]] template from [[http://getbootstrap.com/getting-started/#examples][example layouts]]. 
 
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
@@ -14,7 +14,7 @@
 
   Let's build our example Rails application with a 'home' controller
   and 'home/index', "home/about", "home/contact" pages since those pages
-  are in the [[http://twitter.github.io/bootstrap/examples/starter-template.html][starter-template.html]] template.
+  are in the [[http://getbootstrap.com/2.3.2/examples/starter-template.html][starter-template.html]] template.
   
   1. [X] Initialize a new Rails application
      #+BEGIN_SRC sh
@@ -22,7 +22,11 @@
      #+END_SRC
   2. [X] Change into the newly created Rails application directory
      #+BEGIN_SRC sh
-       cd bootstrap
+       cd example
+     #+END_SRC
+  3. [ ] Copy this twitter-bootstrap-step-by-step.org file
+     #+BEGIN_SRC sh
+       cp ../twitter-bootstrap-step-by-step.org .
      #+END_SRC
   3. [X] Examine your Rails installation
      #+BEGIN_SRC sh
@@ -40,7 +44,7 @@
      
      You might open [[file:../Gemfile][Gemfile]] with Emacs, Vi, [[http://macromates.com/][TextMate]], etc. this way:
      #+BEGIN_EXAMPLE
-       textmate ../../Gemfile
+       textmate Gemfile
      #+END_EXAMPLE
   5. [X] Examine your Rails installation again
      #+BEGIN_SRC sh
@@ -78,16 +82,19 @@
 * Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [X] Enable [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] in [[file:Gemfile][Gemfile]]
      #+BEGIN_SRC ruby
-       # See http://rubygems.org/gems/bootstrap-sass (December 2013)
-       gem "bootstrap-sass", "~> 3.0.2.1"
+       # See http://rubygems.org/gems/bootstrap-sass (July 2014)
+       gem "bootstrap-sass", "~> 3.2.0.0"
      #+END_SRC
   2. [X] Remove the app/assets/stylesheets/application.css file
-  3. [X] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
-     #+BEGIN_SRC css
-       @import "bootstrap";
-       body { padding-top: 60px; }
+     #+BEGIN_SRC sh
+       rm -v app/assets/stylesheets/application.css
      #+END_SRC
-  4. [X] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
+  3. [ ] Create a new [[file:app/assets/stylesheets/application.css.scss][app/assets/stylesheets/application.css.scss]] file
+     #+BEGIN_SRC css :tangle 
+       @import "bootstrap";
+       body { padding-top: 50px; }
+     #+END_SRC
+  4. [ ] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][app/assets/javascripts/application.js]]
      #+BEGIN_SRC js
        //= require jquery
        //= require jquery_ujs
@@ -96,6 +103,56 @@
        //
        // The following line Loads all Bootstrap javascripts
        // = require bootstrap
+     #+END_SRC
+  5. [ ] Tangle the resulting app/views/layout/application.css.scss file
+     #+BEGIN_SRC html :tangle app/views/layout/application.css.scss :padline no
+       <!DOCTYPE html>
+       <html lang="en">
+         <head>
+           <title>Starter Template for Bootstrap</title>
+           <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+           <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+           <%= csrf_meta_tags %>
+           <style>
+             body {
+             padding-top: 50px; /* 50px to make the container go all the way to the bottom of the topbar */
+             }
+           </style>  
+         </head>
+         <body>
+           <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+             <div class="container">
+               <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand" href="#">Project name</a>
+               </div>
+               <div class="collapse navbar-collapse">
+                 <ul class="nav navbar-nav">
+                   <li class="active"><a href="#">Home</a></li>
+                   <li><a href="#about">About</a></li>
+                   <li><a href="#contact">Contact</a></li>
+                 </ul>
+               </div><!--/.nav-collapse -->
+             </div>
+           </div>
+
+           <div class="container">
+
+             <div class="starter-template">
+               <h1>Bootstrap starter template</h1>
+               <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+             </div>
+
+           </div><!-- /.container -->
+         </body>  
+
+       </html>
+
      #+END_SRC
 * Milestone 3: Use Twitter Bootstrap fixed width layout in our Rails application
   
@@ -175,14 +232,14 @@
      went wrong.
 
 * Reference Section
-** The most popular Rails Bootstrap Gems (November 2013)
+** The most popular Rails Bootstrap Gems (July 2014)
   #+TBLNAME: bootstrap_gems
   | Gem                     | Version | Downloads | This version | Author          |
   |-------------------------+---------+-----------+--------------+-----------------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.0.2.1 | 2,500,000 | 21,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 980,000   | 120,000      | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
-  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.0.5 | 170,000   | 2,300        | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
-  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 4,000     | 750          | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.2.0.0 | 4,118,000 |  31,000      | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 1,305,000 | 334,000      | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.2.0 |   240,000 |   1,000      | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |     6,000 |   1,100      | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
 ** Twitter Bootstrap GitHub
    | Link                                 | Description                             |
    |--------------------------------------+-----------------------------------------|
