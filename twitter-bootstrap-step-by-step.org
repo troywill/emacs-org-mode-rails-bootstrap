@@ -82,7 +82,7 @@
 * TODO Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [ ] Enable [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] in file:Gemfile
      #+BEGIN_SRC ruby
-       # See http://rubygems.org/gems/bootstrap-sass (July 29 2014)
+       # See http://rubygems.org/gems/bootstrap-sass (August 1, 2014)
        gem "bootstrap-sass", "~> 3.2.0.1"
      #+END_SRC
   2. [ ] run bundle install
@@ -109,13 +109,11 @@
   
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
-  1. [ ] Overwrite app/views/layouts/application.html.erb with [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] 
+  1. [ ] Replace app/views/layouts/application.html.erb with
 
-     [[file:app/views/layouts/starter-template.html.erb][starter-template.html.erb]] is Twitter Bootstrap's [[https://github.com/twitter/bootstrap/blob/master/docs/examples/starter-template.html][starter template]] example merged
-     with the default [[file:app/views/layouts/application.html.erb][app/views/layouts/application.html.erb]] file that Rails generates.
-     
      Tangle the following file to [[file:app/views/layouts/application.html.erb]].
      #+BEGIN_SRC html :tangle app/views/layouts/application.html.erb :padline no
+
        <!DOCTYPE html>
        <html lang="en">
          <head>
@@ -174,12 +172,12 @@
      went wrong.
 
 * Reference Section
-** The most popular Rails Bootstrap Gems (July 2014)
+** The most popular Rails Bootstrap Gems (August 2014)
   #+TBLNAME: bootstrap_gems
   | Gem                     | Version | Downloads | This version | Author          |
   |-------------------------+---------+-----------+--------------+-----------------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.2.0.1 | 4,118,000 |  2,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 1,321,000 | 347,000      | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.2.0.1 | 4,244,000 |  7,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 1,326,000 | 350,000      | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
   | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.2.0 |   243,000 |   2,000      | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
   | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |     6,000 |   1,100      | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
 ** Twitter Bootstrap GitHub
