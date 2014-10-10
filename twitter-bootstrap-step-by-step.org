@@ -82,8 +82,8 @@
 * TODO Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [ ] Enable [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] in file:Gemfile
      #+BEGIN_SRC ruby
-       # See http://rubygems.org/gems/bootstrap-sass (August 1, 2014)
-       gem "bootstrap-sass", "~> 3.2.0.1"
+       # See http://rubygems.org/gems/bootstrap-sass (September 3, 2014)
+       gem "bootstrap-sass", "~> 3.2.0.2"
      #+END_SRC
   2. [ ] run bundle install
   3. [ ] Remove the app/assets/stylesheets/application.css file
@@ -165,24 +165,23 @@
      #+END_SRC
      
      The starter example layout uses a fixed width layout, which is introduced at [[http://twitter.github.io/bootstrap/scaffolding.html#layouts][scaffolding.html#layouts]].
-  2. [ ] Compare our application at http://localhost:3000 with http://twitter.github.io/bootstrap/examples/starter-template.html.
+  2. [ ] Compare our application at http://localhost:3000 with http://getbootstrap.com/examples/starter-template/
      
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
      went wrong.
 
 * Reference Section
-** The most popular Rails Bootstrap Gems (August 2014)
+** The most popular Rails Bootstrap Gems (October 2014)
   #+TBLNAME: bootstrap_gems
   | Gem                     | Version | Downloads | This version | Author          |
   |-------------------------+---------+-----------+--------------+-----------------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.2.0.1 | 4,244,000 |  7,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   2.2.8 | 1,326,000 | 350,000      | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
-  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.2.0 |   243,000 |   2,000      | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
-  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 |     6,000 |   1,100      | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.2.0.2 | 4,800,000 | 79,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   3.2.0 | 1,400,000 | 26,000       | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    |   3.2.0 | 260,000   | 6,600        | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 6,000     | 1,100        | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
 ** Twitter Bootstrap GitHub
    | Link                                 | Description                             |
    |--------------------------------------+-----------------------------------------|
    | [[https://github.com/twbs/bootstrap]]    | The Twitter Bootstrap GitHub repository |
 ** http://devgirl.org/2012/08/06/styling-your-app-with-twitter-bootstrap/
-   
