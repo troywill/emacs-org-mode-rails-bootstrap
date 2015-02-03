@@ -1,0 +1,22 @@
+* Reference Section
+** The most popular Rails Bootstrap Gems (February 2015)
+  #+TBLNAME: bootstrap_gems
+  | Gem                     | Version | Downloads | This version | Author          |
+  |-------------------------+---------+-----------+--------------+-----------------|
+  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          |   3.3.3 | 5,800,000 | 31,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
+  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   3.2.0 | 1,600,000 | 85,000       | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
+  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    | 3.3.2.0 | 298,000   | 1,000        | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
+  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 7,000     | 1,100        | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
+** Twitter Bootstrap GitHub
+   | Link                                                                         | Description                             |
+   |------------------------------------------------------------------------------+-----------------------------------------|
+   | [[https://github.com/twbs/bootstrap]]                                            | The Twitter Bootstrap GitHub repository |
+   | https://github.com/twbs/bootstrap/tree/master/docs/examples                  |                                         |
+   | https://github.com/twbs/bootstrap/tree/master/docs/examples/starter-template |                                         |
+
+** http://devgirl.org/2012/08/06/styling-your-app-with-twitter-bootstrap/
+* Developer Notes
+  1. The GitHub repository for bootstrap-sass: https://github.com/twbs/bootstrap-sass.
+     Ruby on Rails Guide at https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
+* http://ieatcss.com/twitter-bootstrap-tutorial.html
+  

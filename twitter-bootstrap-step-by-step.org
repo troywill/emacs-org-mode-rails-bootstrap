@@ -3,7 +3,7 @@
   This is a step by step tutorial for new Rails learners to learn how
   [[http://getbootstrap.com][Twitter Bootstrap]] works and to how to use Twitter Bootstrap to provide
   your application with modern layout and styling. This tutorial was last
-  tested on November 17, 2014 by [[https://github.com/troywill][Troy Will]]. We will build a working
+  tested on February 3, 2015 by [[https://github.com/troywill][Troy Will]]. We will build a working
   Rails application to match the [[http://getbootstrap.com/examples/starter-template/][starter-template]] template from [[http://getbootstrap.com/getting-started/#examples][example layouts]]. 
 
   Note for Emacs users: This tutorial was written in Emacs Org Mode. If
@@ -17,8 +17,8 @@
    are in the [[https://github.com/twbs/bootstrap/tree/master/docs/examples/starter-template/index.html][starter-template/index.html]] template.
 
    1. [ ] Initialize a new Rails application
-    #+BEGIN_SRC sh
-      rails new example
+    #+BEGIN_SRC sh :tangle create-new-app.sh
+      rails new example --skip-stylesheets
     #+END_SRC
    2. [ ] Change into the newly created Rails application directory
       #+BEGIN_SRC sh
@@ -87,19 +87,20 @@
 * TODO Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
   1. [ ] Enable [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] in file:./Gemfile
      #+BEGIN_SRC ruby
-       # 3.3.1.0 released 2014-Nov-12, See http://rubygems.org/gems/bootstrap-sass
-       gem "bootstrap-sass", "3.3.1.0"
+       # 3.3.3 released 2015-Jan-20, See http://rubygems.org/gems/bootstrap-sass
+       gem "bootstrap-sass", "3.3.3"
      #+END_SRC
      + Note: See http://rubygems.org/gems/bootstrap-sass for latest version
   2. [ ] run bundle install
   3. [ ] Remove the app/assets/stylesheets/application.css file
      #+BEGIN_SRC sh
-       rm -v app/assets/stylesheets/application.css
+       mv -v app/assets/stylesheets/application.css /tmp
      #+END_SRC
   4. [ ] Create a new file:app/assets/stylesheets/application.css.scss file
      #+BEGIN_SRC css :tangle app/assets/stylesheets/application.css.scss :padline no
+       // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+       @import "bootstrap-sprockets";
        @import "bootstrap";
-       body { padding-top: 50px; }
      #+END_SRC
   5. [ ] Import bootstrap javascript in [[file:app/assets/javascripts/application.js][file:./app/assets/javascripts/application.js]]
      #+BEGIN_SRC js
@@ -109,13 +110,31 @@
        //= require_tree .
        //
        // The following line Loads all Bootstrap javascripts
-       // = require bootstrap
+       // = require bootstrap-sprockets
      #+END_SRC
 * TODO Milestone 3: Use Twitter Bootstrap fixed width layout in our Rails application
   
   Now that Bootstrap is installed let's proceed to use Bootstrap's CSS in our application.
 
-  1. [ ] Replace app/views/layouts/application.html.erb with
+  1. REFERENCE: [[file:app/views/layouts/application.html.erb]].
+     #+BEGIN_SRC html
+       <!DOCTYPE html>
+       <html>
+       <head>
+         <title>Example</title>
+         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+         <%= csrf_meta_tags %>
+       </head>
+       <body>
+
+       <%= yield %>
+
+       </body>
+       </html>
+
+     #+END_SRC
+  2. [ ] Replace app/views/layouts/application.html.erb with
 
      Tangle the following file to [[file:app/views/layouts/application.html.erb]].
 
@@ -168,26 +187,9 @@
      #+END_SRC
      
      The starter example layout uses a fixed width layout, which is introduced at [[http://twitter.github.io/bootstrap/scaffolding.html#layouts][scaffolding.html#layouts]].
-  2. [ ] Compare our application at http://localhost:3000 with http://getbootstrap.com/examples/starter-template/
+  3. [ ] Compare our application at http://localhost:3000 with http://getbootstrap.com/examples/starter-template/
      
      Our newly created Rails application running on port 3000 should have essentially the
      same appearance as the example running on Twitter's github.io site. It it doesn't something
      went wrong.
 
-* Reference Section
-** The most popular Rails Bootstrap Gems (November 2014)
-  #+TBLNAME: bootstrap_gems
-  | Gem                     | Version | Downloads | This version | Author          |
-  |-------------------------+---------+-----------+--------------+-----------------|
-  | [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]]          | 3.3.1.0 | 5,100,000 | 10,000       | [[http://rubygems.org/profiles/tmcdonald][Thomas McDonald]] |
-  | [[http://rubygems.org/gems/twitter-bootstrap-rails][twitter-bootstrap-rails]] |   3.2.0 | 1,400,000 | 37,000       | [[http://rubygems.org/profiles/seyhunak][Seyhun Akyurek]]  |
-  | [[http://rubygems.org/gems/less-rails-bootstrap][less-rails-bootstrap]]    | 3.3.0.0 | 270,000   | 198          | [[http://rubygems.org/profiles/metaskills][Ken Collins]]     |
-  | [[http://rubygems.org/gems/sass-twitter-bootstrap][sass-twitter-bootstrap]]  |   2.3.0 | 6,000     | 1,100        | [[http://rubygems.org/profiles/wadetandy][Wade Tandy]]      |
-** Twitter Bootstrap GitHub
-   | Link                                                                         | Description                             |
-   |------------------------------------------------------------------------------+-----------------------------------------|
-   | [[https://github.com/twbs/bootstrap]]                                            | The Twitter Bootstrap GitHub repository |
-   | https://github.com/twbs/bootstrap/tree/master/docs/examples                  |                                         |
-   | https://github.com/twbs/bootstrap/tree/master/docs/examples/starter-template |                                         |
-
-** http://devgirl.org/2012/08/06/styling-your-app-with-twitter-bootstrap/
