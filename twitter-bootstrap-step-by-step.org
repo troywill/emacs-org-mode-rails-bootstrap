@@ -11,6 +11,7 @@
   from the twitter-bootstrap-step-by-step.org file.
 
 * TODO Milestone 1: Build an initial Rails application
+  CLOSED: [2015-06-16 Tue 16:42]
 ** Step by Step
    Let's build our example Rails application with a 'home' controller
    and 'home/index', "home/about", "home/contact" pages since those pages
@@ -85,10 +86,11 @@
    Now, let's incorporate Bootstrap into our application.
    
 * TODO Milestone 2: Set up Twitter Bootstrap with the [[https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/README.md#bootstrap-for-sass][bootstrap-sass]] gem
+  CLOSED: [2015-06-16 Tue 16:46]
   1. [ ] Enable [[http://rubygems.org/gems/bootstrap-sass][bootstrap-sass]] in file:./Gemfile
      #+BEGIN_SRC ruby
-       # 3.3.3 released 2015-Jan-20, See http://rubygems.org/gems/bootstrap-sass
-       gem "bootstrap-sass", "3.3.3"
+       # 3.3.5 released 2015-Jun-16, See http://rubygems.org/gems/bootstrap-sass
+       gem "bootstrap-sass", "3.3.5"
      #+END_SRC
      + Note: See http://rubygems.org/gems/bootstrap-sass for latest version
   2. [ ] run bundle install
